@@ -4,6 +4,7 @@ import {createBrowserRouter, RouterProvider, Route} from 'react-router-dom'
 
 import Main from '../../pages/main'
 import Goods from '../../pages/goods'
+import Menu from '../../components/menu'
 
 //Роутинг приложения (path - путь в строке блаузера, element - компонент который отображается)
 const Router = createBrowserRouter([
@@ -18,4 +19,3 @@ const Router = createBrowserRouter([
 ])
 
 export default Router
-
