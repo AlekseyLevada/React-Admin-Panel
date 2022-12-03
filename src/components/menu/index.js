@@ -1,5 +1,4 @@
 // Импотрируем реакт
-
 import React from 'react';
 
 class Menu extends React.Component {
@@ -9,17 +8,17 @@ class Menu extends React.Component {
 
     render() {
         const { menu } = this.props
-        // Вывести элементы н верстку
+        // Вывести элементы на верстку
 
         return (
-            <div>
+            <div className='container__menu'>
                 <h1>
                     Menu
                 </h1>
                 {
                     menu.map((menuElement, index) => {
-                        console.log(menuElement)
-                        return(
+                        // console.log(menuElement)
+                        return (
                             <a href={menuElement.link}>{menuElement.text}</a>
                         )
                     })

@@ -1,14 +1,13 @@
-// Импотрируем реакт
 import React from 'react';
 
-class Goods extends React.Component{
-    constructor(){
+class Goods extends React.Component {
+    constructor() {
         super()
     }
 
-    render(){
-        return(
-            <div>Goods</div>
+    render() {
+        return (
+            <div>Товары</div>
         )
     }
 }

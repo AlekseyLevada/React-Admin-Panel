@@ -12,27 +12,35 @@ class App extends React.Component {
     super()
     // Состояния компонента state, определяется только в конструкторе
     this.state = {
-      menu:[
+      menu: [
         {
-          text:'Главная',
-          link:'/',
+          text: 'Главная',
+          link: '/',
         },
         {
-          text:'Товары',
-          link:'/goods',
+          text: 'Товары',
+          link: '/goods',
+        },
+        {
+          text: 'Пользователи',
+          link: '/users',
+        },
+        {
+          text: 'Отзывы',
+          link: '/reviews',
         },
       ]
     }
   }
 
   render() {
-    return(
-      <div className = "App" >
-        <Menu menu = {this.state.menu}/>
-    <RouterProvider router={Router}/>
+    return (
+      <div className="App" >
+        <Menu menu={this.state.menu} />
+        <RouterProvider router={Router} />
       </div>
     );
-  } 
+  }
 }
 
 export default App;
