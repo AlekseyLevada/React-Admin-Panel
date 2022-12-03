@@ -4,10 +4,20 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+// Импортируем роутер провайдер
+import {RouterProvider} from 'react-router-dom'
+
+// Импортируем блок Меню
+
+import Menu from './components/menu'
+
+import Router from './utils/router';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Menu/>
+  
   </React.StrictMode>
 );
 
