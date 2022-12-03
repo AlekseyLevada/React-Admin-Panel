@@ -7,6 +7,10 @@ import { RouterProvider } from 'react-router-dom'
 
 import Router from './utils/router';
 
+/**
+ * Класс для генерирования Главной страницы приложения
+ */
+
 class App extends React.Component {
   constructor() {
     super()
