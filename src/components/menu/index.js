@@ -1,4 +1,9 @@
-import React from 'react';
+import React from 'react'
+import propTypes from 'prop-types'
+
+//import { Link } from 'react-router-dom'
+
+import { MenuItemShape } from '../../shapes/MenuItemShape'
 
 /**
  * Класс для генерирования компонента 'Меню' приложения 
@@ -22,7 +27,7 @@ class Menu extends React.Component {
                     menu.map((menuElement, index) => {
                         // console.log(menuElement)
                         return (
-                            <li className='menu__item'>
+                            <li className='menu__item' key={index}>
                                 <a className='menu__link' href={menuElement.link}>{menuElement.text}</a>
                             </li>
                             
@@ -30,17 +35,16 @@ class Menu extends React.Component {
                     })
                 }
                 </ul>
-                {/* {
-                    menu.map((menuElement, index) => {
-                        // console.log(menuElement)
-                        return (
-                            <a href={menuElement.link}>{menuElement.text}</a>
-                        )
-                    })
-                } */}
             </div>
         )
     }
+}
+
+// Проверка входящих в компонент типов
+Menu.propTypes = {
+    menu: propTypes.arrayOf(
+        MenuItemShape
+    )
 }
 
 export default Menu

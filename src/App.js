@@ -5,7 +5,8 @@ import Menu from './components/menu'
 // Импортируем роутер провайдер
 import { RouterProvider } from 'react-router-dom'
 
-import Router from './utils/router';
+// Импортируем роутер
+import Router from './utils/router'
 
 /**
  * Класс для генерирования Главной страницы приложения
