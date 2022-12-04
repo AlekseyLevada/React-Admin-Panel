@@ -1,0 +1,40 @@
+.container__menu {
+    text-align: center;
+    padding: 0px 10px;
+    background-color: #42389D;
+    box-shadow: 1px 0px 3px #000;
+    width: 15%;
+  }
+  
+  .menu__list {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .menu__title {
+    color: #fff;
+  }
+  
+  .menu__item {
+    width: 100%;
+    padding: 15px 0px;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  .menu__link {
+    margin: 5px 0px;
+    width: 100%;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: .3s;
+  }
+  
+  .menu__link:hover {
+    background-color: #362F78;
+    transition: .3s;
+  }

@@ -1,4 +1,5 @@
 import React from 'react'
+import './style.css'
 import goodsJSON from '../../stub/goods.json'
 import GoodItem from '../../components/gooditem'
 
@@ -24,17 +25,19 @@ class Goods extends React.Component {
     render() {
         //console.log(goodsJSON)
         return (
-            <div>
-                <h2>Товары</h2>
-                <form>
-                    <input type='text' placeholder="Введите название товара"/>
-                    <input type='submit' value='Поиск' onClick={ (event) => {this.findGood(event)}}/>
+            <div className='container__goods'>
+                <h1>Товары</h1>
+                <form className='container__goods_form'>
+                    <input type='text' placeholder="Введите название товара" />
+                    <input type='submit' value='Поиск' onClick={(event) => { this.findGood(event) }} />
                 </form>
-                {
-                    this.state.goodsJSON.map( element => {
-                        return <GoodItem key={element.ID} data={element}/>
-                    })
-                }
+                <div className='container__card'>
+                    {
+                        this.state.goodsJSON.map(element => {
+                            return <GoodItem key={element.ID} data={element} />
+                        })
+                    }
+                </div>
             </div>
         )
     }

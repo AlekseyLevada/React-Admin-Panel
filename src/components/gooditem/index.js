@@ -1,4 +1,5 @@
 import React from "react"
+import './style.css'
 
 /**
  * Класс для генерирования компонента 'GoodItem' приложения 
@@ -19,14 +20,11 @@ class GoodItem extends React.Component {
         const {data} = this.props
         //console.log(data)
         return(
-                <div className="container__card">
-                    <div className="card">
-                        <h3>Карточка товара</h3>
-                        <h4>{data.TITLE}</h4>
-                        <img src={data.IMG}/>
-                        <p>{data.DISCR}</p>
-                        <p>{data.PRICE}</p>
-                    </div>
+                <div className="card">
+                    <h3>{data.TITLE}</h3>
+                    <img src={data.IMG}/>
+                    <h4>{data.DISCR}</h4>
+                    <p>{data.PRICE}</p>
                 </div>
         )
     }

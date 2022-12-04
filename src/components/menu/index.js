@@ -1,7 +1,6 @@
 import React from 'react'
 import propTypes from 'prop-types'
-
-//import { Link } from 'react-router-dom'
+import './style.css'
 
 import { MenuItemShape } from '../../shapes/MenuItemShape'
 
@@ -27,10 +26,9 @@ class Menu extends React.Component {
                     menu.map((menuElement, index) => {
                         // console.log(menuElement)
                         return (
-                            <li className='menu__item' key={index}>
-                                <a className='menu__link' href={menuElement.link}>{menuElement.text}</a>
-                            </li>
-                            
+                            <a className='menu__link' href={menuElement.link} key={index}>
+                                <li className='menu__item'>{menuElement.text}</li> 
+                            </a>
                         )
                     })
                 }
