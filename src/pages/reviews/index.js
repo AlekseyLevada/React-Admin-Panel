@@ -1,4 +1,5 @@
 import React from 'react'
+import './style.css'
 
 /**
  * Класс для генерирования страницы приложения 'Отзывы'
@@ -11,7 +12,11 @@ class Reviews extends React.Component {
 
     render() {
         return(
-            <div>Отзывы</div>
+            <div className='container__reviews'>
+                <h1>
+                    Отзывы
+                </h1>
+            </div>
         )
     }
 }

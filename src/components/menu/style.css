@@ -3,7 +3,9 @@
     padding: 0px 10px;
     background-color: #42389D;
     box-shadow: 1px 0px 3px #000;
+    border-right: 1px solid #000;
     width: 15%;
+    height: 100vh;
   }
   
   .menu__list {

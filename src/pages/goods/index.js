@@ -1,7 +1,7 @@
 import React from 'react'
-import './style.css'
 import goodsJSON from '../../stub/goods.json'
 import GoodItem from '../../components/gooditem'
+import './style.css'
 
 /**
  * Класс для генерирования страницы приложения 'Товары'
@@ -11,14 +11,17 @@ class Goods extends React.Component {
     constructor() {
         super()
         this.state = {
-            goodsJSON
+            goods: goodsJSON,
+            value: '',
+            
         }
     }
 
     findGood(event) {
-        console.log(event.currentTarget.value)
+        event.preventDefault()
         this.setState({
-            goodsJSON: []
+            value:event.target.value,
+            goods: []
         })
     }
 
@@ -28,12 +31,12 @@ class Goods extends React.Component {
             <div className='container__goods'>
                 <h1>Товары</h1>
                 <form className='container__goods_form'>
-                    <input type='text' placeholder="Введите название товара" />
-                    <input type='submit' value='Поиск' onClick={(event) => { this.findGood(event) }} />
+                    <input type='text' placeholder="Введите название товара" value={this.state.value} onChange={this.findGood}/>
+                    <input type='submit' value='Поиск' onClick={(event) => {this.findGood(event)}}/>
                 </form>
                 <div className='container__card'>
                     {
-                        this.state.goodsJSON.map(element => {
+                        this.state.goods.map(element => {
                             return <GoodItem key={element.ID} data={element} />
                         })
                     }

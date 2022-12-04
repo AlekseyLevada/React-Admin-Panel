@@ -1,6 +1,5 @@
-// Импотрируем реакт
-
-import React from 'react';
+import React from 'react'
+import './style.css'
 
 class Main extends React.Component {
     constructor() {
@@ -9,7 +8,11 @@ class Main extends React.Component {
 
     render() {
         return (
-            <div>Главная страница</div>
+            <div className='main__page'>
+                <h1>
+                    Главная страница
+                </h1>
+            </div>
         )
     }
 }

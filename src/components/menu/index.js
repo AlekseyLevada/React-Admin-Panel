@@ -19,7 +19,7 @@ class Menu extends React.Component {
         return (
             <div className='container__menu menu'>
                 <h1 className='menu__title'>
-                    Меню
+                    {/* Меню */}
                 </h1>
                 <ul className='menu__list'>
                     {

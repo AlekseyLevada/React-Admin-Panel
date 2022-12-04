@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider, Route } from 'react-router-dom'
+import { createBrowserRouter} from 'react-router-dom'
 
 // Импортируем страницы приложения для отображения на определенных маршрутах
 

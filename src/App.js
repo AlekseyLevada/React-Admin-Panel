@@ -1,11 +1,11 @@
-import React from 'react';
-import './App.css';
+import React from 'react'
+import './App.css'
 import Menu from './components/menu'
 
-// Импортируем роутер провайдер
+// Импортируем роутер провайдер без которого роутер не будет передавать данные
 import { RouterProvider } from 'react-router-dom'
 
-// Импортируем роутер
+// Импортируем сам роутер
 import Router from './utils/router'
 
 /**
@@ -40,7 +40,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App" >
+      <div className="App">
         <Menu menu={this.state.menu} />
         <RouterProvider router={Router} />
       </div>
