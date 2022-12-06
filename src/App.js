@@ -1,6 +1,6 @@
 import React from 'react'
 import './App.css'
-import Menu from './components/menu'
+import Menu from './components/Menu'
 
 // Импортируем роутер провайдер без которого роутер не будет передавать данные
 import { RouterProvider } from 'react-router-dom'
@@ -42,7 +42,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <Menu menu={this.state.menu} />
-        <RouterProvider router={Router} />
+        <RouterProvider router={Router}/>
       </div>
     );
   }

@@ -1,7 +1,8 @@
 import React from 'react'
 import goodsJSON from '../../stub/goods.json'
-import GoodItem from '../../components/gooditem'
+import GoodItem from '../../components/GoodItem'
 import './style.css'
+
 
 /**
  * Класс для генерирования страницы приложения 'Товары'
@@ -12,8 +13,6 @@ class Goods extends React.Component {
         super()
         this.state = {
             goods: goodsJSON,
-            value: '',
-            
         }
     }
 
@@ -26,14 +25,17 @@ class Goods extends React.Component {
     }
 
     render() {
-        //console.log(goodsJSON)
         return (
             <div className='container__goods'>
-                <h1>Товары</h1>
+                <h1>
+                    Товары
+                </h1>
+
                 <form className='container__goods_form'>
                     <input type='text' placeholder="Введите название товара" value={this.state.value} onChange={this.findGood}/>
                     <input type='submit' value='Поиск' onClick={(event) => {this.findGood(event)}}/>
                 </form>
+                
                 <div className='container__card'>
                     {
                         this.state.goods.map(element => {

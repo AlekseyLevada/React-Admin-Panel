@@ -1,8 +1,8 @@
-import propTypes from 'prop-types'
+import PropTypes from 'prop-types'
 
-const MenuItemShape = propTypes.shape({
-    link:propTypes.string,
-    text:propTypes.string,
+const MenuItemShape = PropTypes.shape({
+    link:PropTypes.string,
+    text:PropTypes.string,
 })
 
 export {MenuItemShape}

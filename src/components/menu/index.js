@@ -1,5 +1,5 @@
 import React from 'react'
-import propTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import './style.css'
 
 import { MenuItemShape } from '../../shapes/MenuItemShape'
@@ -12,10 +12,10 @@ class Menu extends React.Component {
     constructor() {
         super()
     }
-
+    
     render() {
         const { menu } = this.props
-        // Вывести элементы на верстку
+        //console.log(menu)
         return (
             <div className='container__menu menu'>
                 <h1 className='menu__title'>
@@ -40,7 +40,7 @@ class Menu extends React.Component {
 
 // Проверка входящих в компонент типов
 Menu.propTypes = {
-    menu: propTypes.arrayOf(
+    menu: PropTypes.arrayOf(
         MenuItemShape
     )
 }
