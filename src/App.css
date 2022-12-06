@@ -7,4 +7,5 @@
 .App {
   display: flex;
   background-color: #EDEEF1;
+  min-height: 100vh;
 }
