@@ -11,20 +11,28 @@ import './style.css'
 class Goods extends React.Component {
     constructor() {
         super()
+        //this.searchValue = React.createRef() (для возврата значения из DOM узла прописываем атрибут ref={this.searchValue})
         this.state = {
             goods: goodsJSON,
+            value: '',
         }
     }
-
-    findGood(event) {
-        event.preventDefault()
+    
+    findGood(e) {
         this.setState({
-            value:event.target.value,
-            goods: []
+            value: e.target.value,
         })
+        // this.state.goods.find( element => {
+        //     if (this.state.value == element.TITLE){
+        //         const findingEl = null
+        //         findingEl = element
+        //         return findingEl
+        //     }
+        // })
     }
 
     render() {
+        console.log(this.state.value)
         return (
             <div className='container__goods'>
                 <h1>
@@ -32,8 +40,8 @@ class Goods extends React.Component {
                 </h1>
 
                 <form className='container__goods_form'>
-                    <input type='text' placeholder="Введите название товара" value={this.state.value} onChange={this.findGood}/>
-                    <input type='submit' value='Поиск' onClick={(event) => {this.findGood(event)}}/>
+                    <input type='text' placeholder="Введите название товара" value={this.state.value} onChange={(e) => {this.findGood(e)}}/>
+                    <input type='submit' value='Найти' onClick={this.findGood}/>
                 </form>
                 
                 <div className='container__card'>

@@ -8,7 +8,7 @@
 
 .container__goods_form{
     text-align: end;
-    margin-right: 20px;
+    margin: 25px;
 }
 
 .container__goods input:nth-child(1) {

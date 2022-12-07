@@ -6,6 +6,11 @@
 
 .App {
   display: flex;
-  background-color: #EDEEF1;
+  /* background-color: #EDEEF1; Production? */
+  background-color: #ffffff;
   min-height: 100vh;
+}
+
+h1 {
+  margin: 15px 0px;
 }
