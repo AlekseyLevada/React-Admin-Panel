@@ -1,6 +1,6 @@
 import React from 'react'
 import './App.css'
-import Menu from './components/Menu'
+import Menu from './components/menu/index.js'
 
 // Импортируем роутер провайдер без которого роутер не будет передавать данные
 import { RouterProvider } from 'react-router-dom'

@@ -1,6 +1,6 @@
 import React from 'react'
 import goodsJSON from '../../stub/goods.json'
-import GoodItem from '../../components/GoodItem'
+import GoodItem from '../../components/goodItem/index.js'
 import './style.css'
 
 
@@ -11,19 +11,15 @@ import './style.css'
 class Goods extends React.Component {
     constructor() {
         super()
-        //this.searchValue = React.createRef() (для возврата значения из DOM узла прописываем атрибут ref={this.searchValue})
         this.state = {
             goods: goodsJSON,
-            value: '',
         }
     }
     
     findGood(e) {
-        this.setState({
-            value: e.target.value,
-        })
+        //console.log(e.target.value)
         this.state.goods.find(element => {
-            if(element.TITLE === this.state.value){
+            if(element.TITLE.toLowerCase() === e.target.value.toLowerCase()){
                 console.log(element)
             }
         })
@@ -37,7 +33,7 @@ class Goods extends React.Component {
                 </h1>
 
                 <form className='container__goods_form'>
-                    <input type='text' placeholder="Название товара" value={this.state.value} onChange={(e) => this.findGood(e)}/>
+                    <input type='text' placeholder="Название товара" onChange={(e) => {this.findGood(e)}}/>
                     <input type='submit' value='Найти'/>
                 </form>
                 
