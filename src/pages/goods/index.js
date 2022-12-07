@@ -22,17 +22,14 @@ class Goods extends React.Component {
         this.setState({
             value: e.target.value,
         })
-        // this.state.goods.find( element => {
-        //     if (this.state.value == element.TITLE){
-        //         const findingEl = null
-        //         findingEl = element
-        //         return findingEl
-        //     }
-        // })
+        this.state.goods.find(element => {
+            if(element.TITLE === this.state.value){
+                console.log(element)
+            }
+        })
     }
 
     render() {
-        console.log(this.state.value)
         return (
             <div className='container__goods'>
                 <h1>
@@ -40,8 +37,8 @@ class Goods extends React.Component {
                 </h1>
 
                 <form className='container__goods_form'>
-                    <input type='text' placeholder="Введите название товара" value={this.state.value} onChange={(e) => {this.findGood(e)}}/>
-                    <input type='submit' value='Найти' onClick={this.findGood}/>
+                    <input type='text' placeholder="Название товара" value={this.state.value} onChange={(e) => this.findGood(e)}/>
+                    <input type='submit' value='Найти'/>
                 </form>
                 
                 <div className='container__card'>
