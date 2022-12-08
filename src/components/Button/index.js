@@ -1,6 +1,11 @@
 import React from 'react'
 import './style.css'
 
+/**
+ * Общая кнопка для компонентов:
+ *  - карточка товара
+ */
+
 export default class Button extends React.Component {
     constructor() {
         super()
@@ -15,3 +20,4 @@ export default class Button extends React.Component {
         )
     }
 }
+
