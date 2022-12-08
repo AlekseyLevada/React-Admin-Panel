@@ -1,5 +1,5 @@
 import React from "react"
-import Button from "../button/index.js"
+import Button from "../buttons/index.js"
 import './style.css'
 
 /**

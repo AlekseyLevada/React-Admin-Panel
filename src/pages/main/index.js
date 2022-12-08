@@ -1,7 +1,7 @@
 import React from 'react'
 import './style.css'
 
-class Main extends React.Component {
+export default class Main extends React.Component {
     constructor() {
         super()
     }
@@ -16,5 +16,3 @@ class Main extends React.Component {
         )
     }
 }
-
-export default Main
