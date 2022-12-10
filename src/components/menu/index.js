@@ -16,7 +16,6 @@ class Menu extends React.Component {
     
     render() {
         const { menu } = this.props
-        //console.log(menu)
         return (
             <div className='container__menu menu'>
                 <h1 className='menu__title'>
@@ -25,7 +24,6 @@ class Menu extends React.Component {
                 <ul className='menu__list'>
                     {
                     menu.map((menuElement, index) => {
-                        //console.log(menuElement)
                         return (
                             <a className='menu__link' href={menuElement.link} key={index}>
                             <li className='menu__item'>{menuElement.text}</li> 

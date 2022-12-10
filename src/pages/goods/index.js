@@ -16,15 +16,19 @@ class Goods extends React.Component {
         }
     }
     
+    // findGood(e) {
+    //     //e.preventDefault()
+    //     this.state.goods.find(element => {
+    //         if (element.TITLE.toLowerCase() === e.target.value.toLowerCase()){
+    //             this.setState({
+    //                 goods:[element]
+    //             })
+    //         }
+    //     })
+    // }
+
     findGood(e) {
-        //e.preventDefault()
-        this.state.goods.find(element => {
-            if (element.TITLE.toLowerCase() === e.target.value.toLowerCase()){
-                this.setState({
-                    goods:[element]
-                })
-            }
-        })
+        
     }
 
     render() {
@@ -36,7 +40,7 @@ class Goods extends React.Component {
 
                 <form className='container__goods_form'>
                     <input type='text' placeholder="Поиск товара" onChange={(e) => {this.findGood(e)}}/>
-                    {/* <input type='submit' value='Найти'/> */}
+                    <input type='submit' value='Найти'/>
                 </form>
                 
                 <div className='container__card'>
