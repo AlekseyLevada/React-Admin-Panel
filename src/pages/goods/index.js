@@ -1,6 +1,6 @@
 import React from 'react'
 import goodsJSON from '../../stub/goods.json'
-import GoodItem from '../../components/goodItem/index.js'
+import GoodItem from '../../components/good_item/index.js'
 import './style.css'
 
 
@@ -8,14 +8,17 @@ import './style.css'
  * Класс для генерирования страницы приложения 'Товары'
  */
 
+const inputSearchRef = React.createRef()
+
 class Goods extends React.Component {
     constructor() {
         super()
         this.state = {
             goods: goodsJSON,
+            filteredGoods: null,
         }
     }
-    
+
     // findGood(e) {
     //     //e.preventDefault()
     //     this.state.goods.find(element => {
@@ -28,10 +31,28 @@ class Goods extends React.Component {
     // }
 
     findGood(e) {
-        
+        e.preventDefault()
+        const valueFromInputSearchInput = inputSearchRef?.current?.value
+        console.log(valueFromInputSearchInput)
+        const searchElement = this.state.goods.find(element => {
+            return element.TITLE.toLocaleLowerCase() == valueFromInputSearchInput.toLowerCase() || element.DISCR.toLocaleLowerCase() == valueFromInputSearchInput.toLowerCase()
+        })
+
+        if (searchElement == '' || searchElement == undefined) {
+            this.setState({
+                goods: goodsJSON
+            })
+        } else {
+            this.setState({
+                filteredGoods: [searchElement]
+            })
+        }
     }
 
+
+
     render() {
+        const goods = this.state.filteredGoods || this.state.goods
         return (
             <div className='container__goods'>
                 <h1>
@@ -39,13 +60,13 @@ class Goods extends React.Component {
                 </h1>
 
                 <form className='container__goods_form'>
-                    <input type='text' placeholder="Поиск товара" onChange={(e) => {this.findGood(e)}}/>
-                    <input type='submit' value='Найти'/>
+                    <input type='text' placeholder="Поиск товара" ref={inputSearchRef} />
+                    <input type='submit' value='Найти' onClick={(e) => this.findGood(e)} />
                 </form>
-                
+
                 <div className='container__card'>
                     {
-                        this.state.goods.map((element, index) => {
+                        goods.map((element, index) => {
                             return <GoodItem key={element.ID} data={element} />
                         })
                     }

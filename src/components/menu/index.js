@@ -1,6 +1,7 @@
+import './style.css'
 import React from 'react'
 import PropTypes from 'prop-types'
-import './style.css'
+import { Link } from 'react-router-dom'
 
 
 import { MenuItemShape } from '../../shapes/MenuItemShape'
@@ -13,24 +14,23 @@ class Menu extends React.Component {
     constructor() {
         super()
     }
-    
+
     render() {
         const { menu } = this.props
         return (
             <div className='container__menu menu'>
-                <h1 className='menu__title'>
-                    {/* Меню */}
-                </h1>
                 <ul className='menu__list'>
                     {
-                    menu.map((menuElement, index) => {
-                        return (
-                            <a className='menu__link' href={menuElement.link} key={index}>
-                            <li className='menu__item'>{menuElement.text}</li> 
-                            </a>
-                        )
-                    })
-                }
+                        menu.map((menuElement, index) => {
+                            return (
+                                <li className='menu__item' key={index}>
+                                    <Link className='menu__link' to={menuElement.link}>
+                                        {menuElement.text}
+                                    </Link>
+                                </li>
+                            )
+                        })
+                    }
                 </ul>
             </div>
         )
