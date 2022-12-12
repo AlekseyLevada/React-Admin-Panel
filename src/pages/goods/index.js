@@ -14,19 +14,21 @@ class Goods extends React.Component {
         super()
         this.state = {
             goods: goodsJSON,
-            filteredGoods: null,
+            // filteredGoods: null,
         }
     }
 
     findGood(e) {
         this.state.goods.find(element => {
-            if (e.target.value.toLowerCase() === element.TITLE.toLowerCase()) {
-                this.setState({
-                    goods: [element]
-                })
+            if (element.TITLE.length === e.target.value.length) {
+                if (e.target.value.toLowerCase() === element.TITLE.toLowerCase() || e.target.value.toLowerCase() === element.DISCR.toLowerCase()) {
+                    this.setState({
+                        goods: [element]
+                    })
+                }
             }
 
-            else if (e.target.value.toLowerCase() === '' || e.target.value.toLowerCase() === null){
+            else if (e.target.value.toLowerCase() === '' || e.target.value.toLowerCase() === null) {
                 this.setState({
                     goods: goodsJSON
                 })
