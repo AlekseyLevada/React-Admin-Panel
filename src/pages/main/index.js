@@ -9,9 +9,9 @@ export default class Main extends React.Component {
     render() {
         return (
             <div className='main__page'>
-                <h1>
+                <h2>
                     Главная страница
-                </h1>
+                </h2>
             </div>
         )
     }

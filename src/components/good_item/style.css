@@ -13,6 +13,9 @@
   text-align: center;
   transition: .3s;
 }
+.card a {
+  text-decoration: none;
+}
 
 .card h3 {
   margin: 10px;

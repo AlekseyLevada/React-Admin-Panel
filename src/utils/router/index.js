@@ -3,10 +3,16 @@ import { createBrowserRouter } from 'react-router-dom'
 // Импортируем страницы приложения для отображения на определенных маршрутах
 
 import MainLayout from '../../components/main_layout/index.js'
+import GoodList from '../../components/good_list/index.js'
+import GoodDetail from '../../components/good_detail/index.js'
 import Main from '../../pages/main/index.js'
 import Goods from '../../pages/goods/index.js'
 import Users from '../../pages/users/index.js'
 import Reviews from '../../pages/reviews/index.js'
+
+/**
+ * Модуль React который определяет маршруты моего приложения
+ */
 
 const Router = createBrowserRouter([
     {
@@ -14,19 +20,27 @@ const Router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Main />,
+                element: <Main />
             },
 
             {
                 path: '/goods',
                 element: <Goods />,
+                children: [
+                    {
+                        index: true,
+                        element: <GoodList />
+                    },
+                    {
+                        path: '/goods/:id',
+                        element: <GoodDetail />
+                    },
+                ]
             },
-
             {
                 path: '/users',
                 element: <Users />,
             },
-
             {
                 path: '/reviews',
                 element: <Reviews />,

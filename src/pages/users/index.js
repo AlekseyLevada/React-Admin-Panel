@@ -13,9 +13,9 @@ class Users extends React.Component {
     render() {
         return(
             <div className='container__users'>
-                <h1>
+                <h2>
                     Пользователи
-                </h1>
+                </h2>
             </div>
         )
     }

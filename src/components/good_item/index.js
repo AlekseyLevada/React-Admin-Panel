@@ -1,6 +1,7 @@
 import React from "react"
-import Button from "../buttons/index.js"
 import './style.css'
+import Button from '../buttons/index.js'
+import { Link } from 'react-router-dom'
 
 /**
  * Класс для генерирования компонента 'GoodItem' 
@@ -14,21 +15,24 @@ import './style.css'
  */
 
 class GoodItem extends React.Component {
-    constructor(){
+    constructor() {
         super()
     }
 
     render() {
-        const {data} = this.props
-        //console.log(data)
-        return(
+        const { data } = this.props
+        return (
+
             <div className="card">
                 <h3>{data.TITLE}</h3>
-                <img src={data.IMG}/>
+                <img src={data.IMG} />
                 <h4>{data.DISCR}</h4>
                 <p>{data.PRICE}</p>
-                <Button value='Подробнее'/>
+                <Link to={`/goods/${data.ID}`}>
+                    <Button value='Подробнее'/>
+                </Link>
             </div>
+
         )
     }
 }

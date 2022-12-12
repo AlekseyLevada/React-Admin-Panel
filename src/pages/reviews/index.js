@@ -13,9 +13,9 @@ class Reviews extends React.Component {
     render() {
         return(
             <div className='container__reviews'>
-                <h1>
+                <h2>
                     Отзывы
-                </h1>
+                </h2>
             </div>
         )
     }
