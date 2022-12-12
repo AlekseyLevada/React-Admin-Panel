@@ -8,9 +8,6 @@ import Goods from '../../pages/goods/index.js'
 import Users from '../../pages/users/index.js'
 import Reviews from '../../pages/reviews/index.js'
 
-
-//Роутинг приложения (path - путь в строке блаузера, element - компонент который отображается)
-
 const Router = createBrowserRouter([
     {
         element: <MainLayout />,

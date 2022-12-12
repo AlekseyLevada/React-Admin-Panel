@@ -1,8 +1,7 @@
 import React from 'react'
+import './style.css'
 import goodsJSON from '../../stub/goods.json'
 import GoodItem from '../../components/good_item/index.js'
-import './style.css'
-
 
 /**
  * Класс для генерирования страницы приложения 'Товары'

@@ -1,6 +1,7 @@
-import React from 'react'
-import Menu from '../menu/index.js'
 import '../main_layout/style.css'
+import React from 'react'
+
+import Menu from '../menu/index.js'
 
 // Импортируем механизм роутер дома
 import { Outlet } from 'react-router-dom'
