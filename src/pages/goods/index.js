@@ -16,6 +16,44 @@ export default class Goods extends React.Component {
         }
     }
 
+    findGood(e) {
+        this.state.goods.find(element => {
+                if (e.target.value.toLowerCase() === element.DISCR.toLowerCase() || e.target.value.toLowerCase() === element.TITLE.toLowerCase()) {
+                    this.setState({
+                        goods: [element]
+                    })
+                }
+            else if (e.target.value.toLowerCase() === '' || e.target.value.toLowerCase() === null) {
+                this.setState({
+                    goods: goodsJSON
+                })
+            }
+        })
+    }
+
+    render() {
+        
+        return (
+            <div className='container__goods'>
+                <h1>
+                    Товары
+                </h1>
+
+                <form className='container__goods_form'>
+                    <input type='text' placeholder="Поиск товара" onChange={(e) => this.findGood(e)} />
+                    {/* <input type='submit' value='Найти' onClick={(e) => this.catchInputValue(e)} /> */}
+                </form>
+
+                <div className='container__card'>
+                    {
+                        this.state.goods.map((element) => {
+                            return <GoodItem key={element.ID} data={element} />
+                        })
+                    }
+                </div>
+            </div>
+        )
+    }
 
     /** Для использования даного метода необходимо добаить в стейт переменную goodsInputValue: null, и повесить на кнопку 
      * onClick={(e) => this.catchInputValue(e)}
@@ -64,43 +102,4 @@ export default class Goods extends React.Component {
         }
     }
     */
-    
-    findGood(e) {
-        this.state.goods.find(element => {
-                if (e.target.value.toLowerCase() === element.DISCR.toLowerCase() || e.target.value.toLowerCase() === element.TITLE.toLowerCase()) {
-                    this.setState({
-                        goods: [element]
-                    })
-                }
-            else if (e.target.value.toLowerCase() === '' || e.target.value.toLowerCase() === null) {
-                this.setState({
-                    goods: goodsJSON
-                })
-            }
-        })
-    }
-
-    render() {
-        
-        return (
-            <div className='container__goods'>
-                <h1>
-                    Товары
-                </h1>
-
-                <form className='container__goods_form'>
-                    <input type='text' placeholder="Поиск товара" onChange={(e) => this.findGood(e)} />
-                    {/* <input type='submit' value='Найти' onClick={(e) => this.catchInputValue(e)} /> */}
-                </form>
-
-                <div className='container__card'>
-                    {
-                        this.state.goods.map((element) => {
-                            return <GoodItem key={element.ID} data={element} />
-                        })
-                    }
-                </div>
-            </div>
-        )
-    }
 }
