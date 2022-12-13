@@ -13,7 +13,6 @@ export default class GoodList extends React.Component {
         super()
         this.state = {
             goods: goodsJSON,
-            // filteredGoods: null,
         }
     }
 
@@ -30,13 +29,14 @@ export default class GoodList extends React.Component {
                 <div className='container__card'>
                     {
                         this.state.goods.map((element) => {
-                            return <GoodItem key={element.ID} data={element} />
+                            return <GoodItem key={element.ID} data={element} deleteGood={this.deleteGood} context={this} />
                         })
                     }
                 </div>
             </div>
         )
     }
+
     findGood(e) {
         e.preventDefault()
         this.state.goods.find(element => {
@@ -50,6 +50,16 @@ export default class GoodList extends React.Component {
                     goods: goodsJSON
                 })
             }
+        })
+    }
+
+    deleteGood(e,id,context) {
+        e.preventDefault()
+        const newFilteredGoods = context.state.goods.filter(element =>
+            element.ID !== id
+        )
+        context.setState({
+            goods: newFilteredGoods
         })
     }
 

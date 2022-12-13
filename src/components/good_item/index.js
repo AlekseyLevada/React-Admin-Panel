@@ -1,5 +1,6 @@
 import React from "react"
 import './style.css'
+
 import Button from '../buttons/index.js'
 import { Link } from 'react-router-dom'
 
@@ -14,27 +15,26 @@ import { Link } from 'react-router-dom'
  * "COUNT": "232"
  */
 
-class GoodItem extends React.Component {
+export default class GoodItem extends React.Component {
     constructor() {
         super()
     }
 
     render() {
-        const { data } = this.props
+        const {data, deleteGood, context} = this.props
         return (
-
             <div className="card">
                 <h3>{data.TITLE}</h3>
                 <img src={data.IMG} />
                 <h4>{data.DISCR}</h4>
                 <p>{data.PRICE}</p>
                 <Link to={`/goods/${data.ID}`}>
-                    <Button value='Подробнее'/>
+                    <Button value='Редактировать' />
+                </Link>
+                <Link onClick={(e) => deleteGood(e, data.ID, context)}>
+                    <Button value='Удалить' />
                 </Link>
             </div>
-
         )
     }
 }
-
-export default GoodItem

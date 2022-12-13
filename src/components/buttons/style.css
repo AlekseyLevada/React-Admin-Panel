@@ -1,11 +1,12 @@
 .detailBtn {
     margin: 10px auto;
+    padding: 2px;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 150px;
-    height: 40px;
+    width: fit-content;
+    height: 30px;
     border-radius: 5px;
     color: #FDFEFE;
     background-color: #F4623A;

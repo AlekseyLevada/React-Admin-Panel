@@ -14,7 +14,9 @@
   transition: .3s;
 }
 .card a {
+  display: inline-block;
   text-decoration: none;
+  margin: 5px;
 }
 
 .card h3 {
