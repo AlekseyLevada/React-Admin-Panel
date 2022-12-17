@@ -1,8 +1,6 @@
 import React from "react";
 import './style.css'
 
-// export const Loader = () => <>LOADING...</>
-
 export function Loader() {
     return <div className='container__loader'> 
                 <div className="sk-cube-grid">
