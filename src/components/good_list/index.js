@@ -77,7 +77,7 @@ export default class GoodList extends React.Component {
                 goods:goodsJSON,
                 isLoading:false,
             })
-        }, 5000);
+        }, 3000);
     }
 
     /** Для использования даного метода необходимо добаить в стейт переменную goodsInputValue: null, и повесить на кнопку 
