@@ -21,7 +21,7 @@ export default class GoodItem extends React.Component {
     }
 
     render() {
-        const {data, deleteGood, context} = this.props
+        const { data, deleteGood, context } = this.props
         return (
             <div className="card">
                 <h3>{data.TITLE}</h3>

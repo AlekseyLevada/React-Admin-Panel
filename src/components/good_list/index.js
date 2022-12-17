@@ -2,6 +2,7 @@ import './style.css'
 import React from 'react'
 import goodsJSON from '../../stub/goods.json'
 import GoodItem from '../../components/good_item/index.js'
+import { Loader } from '../../components/loader/index.js'
 
 
 /**
@@ -13,10 +14,17 @@ export default class GoodList extends React.Component {
         super()
         this.state = {
             goods: goodsJSON,
+            isLoading: true,
         }
+        // Привязка контекста класса к методу
+        // this.deleteGood = this.deleteGood.bind(this)
     }
 
     render() {
+        // Вывод лоадера перед загрузкой
+        if (this.state.isLoading == true) {
+            return <><Loader/></>
+        }
         return (
             <div className='container__goods'>
                 <h2>
@@ -29,7 +37,7 @@ export default class GoodList extends React.Component {
                 <div className='container__card'>
                     {
                         this.state.goods.map((element) => {
-                            return <GoodItem key={element.ID} data={element} deleteGood={this.deleteGood} context={this} />
+                            return <GoodItem key={element.ID} data={element} deleteGood={this.deleteGood} context={this}/>
                         })
                     }
                 </div>
@@ -40,11 +48,11 @@ export default class GoodList extends React.Component {
     findGood(e) {
         e.preventDefault()
         this.state.goods.find(element => {
-                if (e.target.value.toLowerCase() === element.DISCR.toLowerCase() || e.target.value.toLowerCase() === element.TITLE.toLowerCase()) {
-                    this.setState({
-                        goods: [element]
-                    })
-                }
+            if (e.target.value.toLowerCase() === element.DISCR.toLowerCase() || e.target.value.toLowerCase() === element.TITLE.toLowerCase()) {
+                this.setState({
+                    goods: [element]
+                })
+            }
             else if (e.target.value.toLowerCase() === '' || e.target.value.toLowerCase() === null) {
                 this.setState({
                     goods: goodsJSON
@@ -53,7 +61,7 @@ export default class GoodList extends React.Component {
         })
     }
 
-    deleteGood(e,id,context) {
+    deleteGood(e, id, context) {
         e.preventDefault()
         const newFilteredGoods = context.state.goods.filter(element =>
             element.ID !== id
@@ -61,6 +69,15 @@ export default class GoodList extends React.Component {
         context.setState({
             goods: newFilteredGoods
         })
+    }
+
+    componentDidMount() {
+        setTimeout(() => {
+            this.setState({
+                goods:goodsJSON,
+                isLoading:false,
+            })
+        }, 5000);
     }
 
     /** Для использования даного метода необходимо добаить в стейт переменную goodsInputValue: null, и повесить на кнопку 
