@@ -3,7 +3,7 @@ import { createBrowserRouter } from 'react-router-dom'
 // Импортируем страницы приложения для отображения на определенных маршрутах
 
 import MainLayout from '../../components/main_layout/index.js'
-import GoodList from '../../components/good_list/index.js'
+import {GoodList} from '../../components/good_list/index.js'
 import GoodDetail from '../../components/good_detail/index.js'
 import Main from '../../pages/main/index.js'
 import Goods from '../../pages/goods/index.js'
