@@ -13,14 +13,13 @@ import { Loader } from '../../components/loader/index.js'
 export function GoodList(props) {
 
     const [goods, setGoods] = useState([])
-    const [isLoading, setisLoading] = useState(true)
+    const [isLoading, setIsLoading] = useState(true)
     const [currentCount, setCurrentCount] = useState([])
 
     useEffect(() => {
-        // console.log('Goodlist загрузился')
         setTimeout(() => {
             setGoods(goodsJSON)
-            setisLoading(false)
+            setIsLoading(false)
         }, 1000);
     }, [])
 
@@ -58,13 +57,13 @@ export function GoodList(props) {
                 Товары
             </h2>
             <form className='container__goods_form'>
-                <input type='text' placeholder="Поиск товара" onChange={(e) => findGood(e)} />
-                <button onClick={(e) => deleteCurrentGood(e)}>Удалить...{currentCount.length} товаров</button>
+                <input type='text' placeholder="Поиск товара" onChange={findGood} />
+                <button onClick={deleteCurrentGood}>Удалить...{currentCount.length} товаров</button>
             </form>
             <div className='container__card'>
                 {
                     goods.map((element) => {
-                        return <GoodItem key={element.ID} data={element} deleteGood={deleteGood} context={this} currentCount={currentCount} setCurrentCount={setCurrentCount} />
+                        return <GoodItem key={element.ID} data={element} deleteGood={deleteGood} currentCount={currentCount} setCurrentCount={setCurrentCount} />
                     })
                 }
             </div>
