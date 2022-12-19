@@ -1,7 +1,7 @@
 import React from "react"
 import './style.css'
 
-import Button from '../buttons/index.js'
+import {Button} from '../buttons/index.js'
 import { Link } from 'react-router-dom'
 
 /**

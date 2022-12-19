@@ -6,18 +6,10 @@ import './style.css'
  *  - карточка товара
  */
 
-export default class Button extends React.Component {
-    constructor() {
-        super()
-    }
-
-    render() {
-        return(
-            //<input className='detailBtn' type='submit' value={this.state.value}/>
-            <div className='detailBtn'>
-                {this.props.value}
-            </div>
-        )
-    }
+export function Button(props) {
+    return(
+        <div className='detailBtn'>
+                {props.value}
+        </div>
+    )
 }
-

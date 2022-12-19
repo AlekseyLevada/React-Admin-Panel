@@ -20,7 +20,7 @@
 }
 
 .del {
-  box-shadow: 0px 0px 10px #ed1212;
+  outline:4px solid #ed1212;
 }
 
 .card h3 {

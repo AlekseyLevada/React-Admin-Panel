@@ -1,5 +1,6 @@
 import './style.css'
 import React, { useState, useEffect } from 'react'
+
 import goodsJSON from '../../stub/goods.json'
 import GoodItem from '../../components/good_item/index.js'
 import { Loader } from '../../components/loader/index.js'
@@ -14,8 +15,6 @@ export function GoodList(props) {
     const [goods, setGoods] = useState([])
     const [isLoading, setisLoading] = useState(true)
     const [currentCount, setCurrentCount] = useState([])
-
-    // useEffect - хук для работы с состояниями и рабочими эффектами
 
     useEffect(() => {
         // console.log('Goodlist загрузился')
@@ -60,13 +59,12 @@ export function GoodList(props) {
             </h2>
             <form className='container__goods_form'>
                 <input type='text' placeholder="Поиск товара" onChange={(e) => findGood(e)} />
-                {/* <input type='submit' value='Найти' onClick={(e) => this.catchInputValue(e)} /> */}
-                <button onClick={(e)=> deleteCurrentGood(e)}>Удалить...{currentCount.length} товаров</button>
+                <button onClick={(e) => deleteCurrentGood(e)}>Удалить...{currentCount.length} товаров</button>
             </form>
             <div className='container__card'>
                 {
                     goods.map((element) => {
-                        return <GoodItem key={element.ID} data={element} deleteGood={deleteGood} context={this} currentCount={currentCount} setCurrentCount={setCurrentCount}/>
+                        return <GoodItem key={element.ID} data={element} deleteGood={deleteGood} context={this} currentCount={currentCount} setCurrentCount={setCurrentCount} />
                     })
                 }
             </div>
