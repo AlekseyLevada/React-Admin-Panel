@@ -24,8 +24,8 @@ export default class GoodDetail extends React.Component {
                     <p><input type='text' defaultValue={good.DISCR} name='DISCR' /></p>
                     <p><input type='text' defaultValue={good.PRICE} name='PRICE' /></p>
                     <p><input type='text' defaultValue={good.COUNT} name='COUNT' /></p>
-                    <p><input type='file' name='FILE'/></p>
-                    <p><input type='submit' value='Сохранить' onClick={(e)=> this.saveGood(e)}/></p>
+                    <p><input type='file' name='FILE' /></p>
+                    <p><input type='submit' value='Сохранить' onClick={(e) => this.saveGood(e)} /></p>
                 </form>
             </>
         )
@@ -35,7 +35,7 @@ export default class GoodDetail extends React.Component {
         e.preventDefault()
         const nativeForm = saveForm.current
         const formData = new FormData(nativeForm)
-        const file =  formData.get('FILE')
+        const file = formData.get('FILE')
         console.log(file)
     }
 }

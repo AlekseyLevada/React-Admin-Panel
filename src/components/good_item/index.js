@@ -1,7 +1,7 @@
-import React, {useState} from "react"
+import React, { useState } from "react"
 import './style.css'
 
-import {Button} from '../buttons/index.js'
+import { Button } from '../buttons/index.js'
 import { Link } from 'react-router-dom'
 
 /**
@@ -24,7 +24,7 @@ export default class GoodItem extends React.Component {
     }
 
     setCurrent(operation) {
-        const {currentCount, setCurrentCount, data} = this.props
+        const { currentCount, setCurrentCount, data } = this.props
 
         if (operation == '+') {
             this.setState({
@@ -43,8 +43,8 @@ export default class GoodItem extends React.Component {
     }
 
     render() {
-        const { data, deleteGood} = this.props
-        const currentClassName = `card + ${this.state.currentForDel? 'del': null}`
+        const { data, deleteGood } = this.props
+        const currentClassName = `card + ${this.state.currentForDel ? 'del' : null}`
         return (
             <div className={currentClassName}>
                 <h3>{data.TITLE}</h3>
@@ -60,8 +60,8 @@ export default class GoodItem extends React.Component {
                     <Button value='Удалить' />
                 </Link>
                 <div className='card__del_block'>
-                <button onClick={() => this.setCurrent('+')}>  +  </button>
-                <button onClick={() => this.setCurrent('-')}>  -  </button>
+                    <button onClick={() => this.setCurrent('+')}>  +  </button>
+                    <button onClick={() => this.setCurrent('-')}>  -  </button>
                 </div>
             </div>
         )
