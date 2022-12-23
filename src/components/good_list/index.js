@@ -2,7 +2,7 @@ import './style.css'
 import React, { useState, useEffect } from 'react'
 
 import goodsJSON from '../../stub/goods.json'
-import {GoodItem} from '../../components/good_item/index.js'
+import GoodItem from '../../components/good_item/index.js'
 import { Loader } from '../../components/loader/index.js'
 
 
@@ -35,11 +35,9 @@ export function GoodList(props) {
         })
     }
 
-    const deleteGood = (e,id) => {
+    const deleteGood = (e, id) => {
         e.preventDefault()
-        const newFilteredGoods = goods.filter(element =>
-            element.ID !== id
-        )
+        const newFilteredGoods = goods.filter(element => element.ID !== id)
         setGoods(newFilteredGoods)
     }
 
