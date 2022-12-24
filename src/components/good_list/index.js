@@ -20,7 +20,7 @@ export function GoodList(props) {
         setTimeout(() => {
             setGoods(goodsJSON)
             setIsLoading(false)
-        }, 1000);
+        }, 500);
     }, [])
 
     const findGood = (e) => {
@@ -45,7 +45,7 @@ export function GoodList(props) {
         e.preventDefault()
     }
 
-    if (isLoading == true) {
+    if (isLoading === true) {
         return <><Loader /></>
     }
 
