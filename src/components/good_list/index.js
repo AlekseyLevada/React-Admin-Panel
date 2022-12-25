@@ -1,5 +1,6 @@
 import './style.css'
 import React, { useState, useEffect } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 import goodsJSON from '../../stub/goods.json'
 import GoodItem from '../../components/good_item/index.js'
@@ -14,13 +15,26 @@ export function GoodList(props) {
 
     const [goods, setGoods] = useState([])
     const [isLoading, setIsLoading] = useState(true)
-    const [currentCount, setCurrentCount] = useState([])
+    const [selected, setSelected] = useState([])
+
+    const location = useLocation()
+    const navigate = useNavigate()
+
 
     useEffect(() => {
-        setTimeout(() => {
-            setGoods(goodsJSON)
+
+        // setTimeout(() => {
+            const goodsFromDetail = location?.state?.goods
+            console.log(location)
+            if (goodsFromDetail) {
+                setGoods(goodsFromDetail)
+            }
+            else {
+                setGoods(goodsJSON)
+            }
             setIsLoading(false)
-        }, 500);
+        // }, 500);
+        
     }, [])
 
     const findGood = (e) => {
@@ -43,9 +57,17 @@ export function GoodList(props) {
 
     const deleteCurrentGood = (e) => {
         e.preventDefault()
+        const currentGoods = goods
+        for (let i = currentGoods.length - 1; i >= 0; i--) {
+            for(let k = 0; k < selected.length; k++){
+                if (currentGoods[i] && currentGoods[i].ID === selected[k].ID){
+                    currentGoods.splice(i, 1)
+                }
+            }
+        }
     }
 
-    if (isLoading === true) {
+    if (isLoading) {
         return <><Loader /></>
     }
 
@@ -56,12 +78,13 @@ export function GoodList(props) {
             </h2>
             <form className='container__goods_form'>
                 <input type='text' placeholder="Поиск товара" onChange={findGood} />
-                <button onClick={deleteCurrentGood}>Удалить...{currentCount.length} товаров</button>
+                <button onClick={deleteCurrentGood}>Удалить...{selected.length} товаров</button>
+                <button onClick={() => navigate('/goods/add')}>Добавить товар</button>
             </form>
             <div className='container__card'>
                 {
                     goods.map((element) => {
-                        return <GoodItem key={element.ID} data={element} deleteGood={deleteGood} currentCount={currentCount} setCurrentCount={setCurrentCount} />
+                        return <GoodItem key={element.ID} data={element} deleteGood={deleteGood} selected={selected} setSelected={setSelected} />
                     })
                 }
             </div>

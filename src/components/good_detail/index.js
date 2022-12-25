@@ -1,6 +1,6 @@
 import './style.css'
 import React, { useState, useEffect } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate, useLocation} from 'react-router-dom'
 
 import goodsJSON from '../../stub/goods.json'
 import { Link } from 'react-router-dom'
@@ -60,13 +60,14 @@ export function GoodDetail() {
     // id Выхватывается из роутинга из роутера
 
     const navigate = useNavigate()
+    const location = useLocation()
 
     useEffect(() => {
-        const good = goods.find(el => el.ID === id) // id берется из переменной
+        const findIn = location?.state?.goods || goods
+        const good = findIn.find(el => el.ID == id)
         setTimeout(() => {
             setGood(good)
         }, 300)
-
     }, [])
 
     const saveGood = (e) => {
@@ -74,14 +75,15 @@ export function GoodDetail() {
         const nativeForm = saveForm.current
         const formData = new FormData(nativeForm)
 
-        const file = formData.get('FILE')
         const title = formData.get('TITLE')
         const discr = formData.get('DISCR')
         const price = formData.get('PRICE')
         const count = formData.get('COUNT')
-        const img = formData.get('IMG')
 
-        goods.find((el, index)=> {
+        const img = formData.get('IMG')
+        const file = formData.get('FILE')
+
+        goods.find((el, index) => {
             if (el.ID === id) {
                 goods[index].TITLE = title
                 goods[index].DISCR = discr

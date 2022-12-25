@@ -12,31 +12,41 @@ export default class GoodItem extends React.Component {
         }
     }
 
-    setCurrent(operation) {
-        const { currentCount, setCurrentCount, data } = this.props
+    setCurrent(e) {
+        const { selected, setSelected, data } = this.props
+        const operation = e.target.checked === true ? '+' : '-'
 
-        if (operation == '+') {
+        if (e.target.checked) {
             this.setState({
                 currentForDel: true
             })
-            currentCount.push(data)
-            setCurrentCount(
-                [...currentCount]
+            selected.push(data)
+            setSelected(
+                [...selected]
             )
         }
         else {
             this.setState({
                 currentForDel: false
             })
+            const currentDelGood = data.ID
+
+            const newListGood = selected.filter(el => el.ID !== currentDelGood)
+            setSelected(newListGood)
         }
     }
+
 
     render() {
         const { data, deleteGood } = this.props
         const currentClassName = `card ${this.state.currentForDel ? 'del' : ''}`
         return (
             <div className={currentClassName}>
-                <h3>{data.TITLE}</h3>
+                <div className="title__container">
+                    <h3>{data.TITLE}</h3>
+                    <input type='checkbox' onClick={(e) => this.setCurrent(e)} />
+                </div>
+                
                 <img src={data.IMG} />
                 <h4>{data.DISCR}</h4>
                 <p>{data.PRICE}</p>
@@ -49,8 +59,8 @@ export default class GoodItem extends React.Component {
                     <Button value='Удалить' />
                 </Link>
                 <div className='card__del_block'>
-                    <button onClick={() => this.setCurrent('+')}>  +  </button>
-                    <button onClick={() => this.setCurrent('-')}>  -  </button>
+                    {/* <button onClick={() => this.setCurrent('+')}>+</button>
+                    <button onClick={() => this.setCurrent('-')}>-</button> */}
                 </div>
             </div>
         )
@@ -64,7 +74,7 @@ export default class GoodItem extends React.Component {
 
 // export function GoodItem(props) {
 
-//     const {data, deleteGood, currentCount, setCurrentCount} = props
+//     const {data, deleteGood, selected, setSelected} = props
 
 //     const [currentForDel, setCurrentForDel] = useState(false)
 //     const currentClassName = `card ${currentForDel ? 'del' : ''}`

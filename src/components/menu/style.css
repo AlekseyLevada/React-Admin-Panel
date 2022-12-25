@@ -1,7 +1,7 @@
 .container__menu {
     text-align: center;
     padding: 0px 10px;
-    background-color: #42389D;
+    background-color: #2A284F;
     box-shadow: 1px 0px 3px #000;
     border-right: 1px solid #000;
     width: 15%;
@@ -22,14 +22,19 @@
   }
 
   .menu__item:hover {
-    background-color: #362F78;
-    transition: .3s;
+    background-color: #FFCA05;
+    color:#2A284F;
+    transition: .1s;
   }
   
   .menu__link {
-    color: #fff;
+    color: rgb(255, 255, 255);
     text-decoration: none;
-    transition: .3s;
+    transition: .1s;
+  }
+
+  .menu__link:hover {
+    color:#2A284F;
   }
   
   
