@@ -8,14 +8,14 @@
     width: fit-content;
     height: 30px;
     border-radius: 5px;
-    color: #FDFEFE;
-    background-color: #F4623A;
+    color: #FFCA05;
+    background-color: #2A284F;
     transition: 0.1s;
   }
 
 .detailBtn:hover {
     outline: 2px solid beige;
-    color: #000;
+    color: #fff;
     box-shadow: 0px 0px 7px #FDFEFE;
     transition: 0.1s;
   }

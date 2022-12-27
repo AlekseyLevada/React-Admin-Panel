@@ -19,6 +19,9 @@ class Menu extends React.Component {
         const { menu } = this.props
         return (
             <div className='container__menu menu'>
+                <h2>
+                    Меню
+                </h2>
                 <ul className='menu__list'>
                     {
                         menu.map((menuElement, index) => {

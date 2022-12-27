@@ -7,71 +7,33 @@ import { Link } from 'react-router-dom'
 import { Button } from '../buttons'
 import { Loader } from '../loader'
 
-const saveForm = React.createRef()
 
-// export default class GoodDetail extends React.Component {
-//     constructor() {
-//         super()
-//         this.state = {
-//             goods: goodsJSON,
-//         }
-//     }
-
-//     render() {
-//         const goodID = window.location.pathname.replace('/goods/', '')
-//         const good = this.state.goods.find(element => element.ID === goodID)
-//         return (
-//             <div className='container__good_detail'>
-//                 <div className='container__detail_card'>
-//                     <div className='container__info'>
-//                         <img src={good.IMG} />
-//                         <Link to='/goods'><Button value='Назад' /></Link>
-//                     </div>
-//                     <div className='container__form'>
-//                         <form ref={saveForm} encType='multipart/form-data'>
-//                             <input type='text' defaultValue={good.TITLE} name='TITLE' />
-//                             <input type='text' defaultValue={good.DISCR} name='DISCR' />
-//                             <input type='text' defaultValue={good.PRICE} name='PRICE' />
-//                             <input type='text' defaultValue={good.COUNT} name='COUNT' />
-//                             <input type='file' name='FILE' />
-//                             <input type='submit' value='Сохранить' onClick={(e) => this.saveGood(e)} />
-//                         </form>
-//                     </div>
-//                 </div>
-//             </div>
-//         )
-//     }
-
-//     saveGood(e) {
-//         e.preventDefault()
-//         const nativeForm = saveForm.current
-//         const formData = new FormData(nativeForm)
-//         const file = formData.get('FILE')
-//         console.log(file)
-//     }
-// }
 
 export function GoodDetail() {
+
     const [good, setGood] = useState(null)
     const [goods, setGoods] = useState(goodsJSON)
     const { id } = useParams()
 
-
-    // id Выхватывается из роутинга из роутера
-
+    const saveForm = React.createRef()
+    
     const navigate = useNavigate()
     const location = useLocation()
 
+    // useEffect(() => {
+    //     const findIn = location?.state?.goods || goods
+    //     const good = findIn.find(el => el.ID == id)
+    //     setGood(good)
+    // }, [])
+
     useEffect(() => {
-        const findIn = location?.state?.goods || goods
-        const good = findIn.find(el => el.ID == id)
-        setTimeout(() => {
-            setGood(good)
-        }, 300)
-    }, [])
+        const detailedGood = goods.find(el => el.ID == id)
+        setGood(detailedGood)
+    },[])
+
+    /**Метод сохранения товара после редактирования */
 
     const saveGood = (e) => {
-        e.preventDefault()
         const nativeForm = saveForm.current
         const formData = new FormData(nativeForm)
 
@@ -89,12 +51,14 @@ export function GoodDetail() {
                 goods[index].DISCR = discr
                 goods[index].PRICE = price
                 goods[index].COUNT = count
+
                 navigate('/goods', {
                     state: {
                         goods: goods
                     }
                 })
             }
+            e.preventDefault()
         })
     }
 
@@ -111,10 +75,16 @@ export function GoodDetail() {
                 </div>
                 <div className='container__form'>
                     <form ref={saveForm} encType='multipart/form-data'>
+                        <p>Название товара</p>
                         <input type='text' defaultValue={good.TITLE} name='TITLE' />
-                        <input type='text' defaultValue={good.DISCR} name='DISCR' />
+                        <p>Описание товара</p>
+                        <textarea type='text' defaultValue={good.DISCR} name='DISCR' cols={37} rows={5}></textarea>
+                        {/* <input type='text' defaultValue={good.DISCR} name='DISCR' /> */}
+                        <p>Цена</p>
                         <input type='text' defaultValue={good.PRICE} name='PRICE' />
+                        <p>Колличество</p>
                         <input type='text' defaultValue={good.COUNT} name='COUNT' />
+
                         <input type='file' name='FILE' />
                         <input type='submit' value='Сохранить' onClick={(e) => saveGood(e)} />
                     </form>

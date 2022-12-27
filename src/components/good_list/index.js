@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 
 import goodsJSON from '../../stub/goods.json'
-import GoodItem from '../../components/good_item/index.js'
+import {GoodItem} from '../../components/good_item/index.js'
 import { Loader } from '../../components/loader/index.js'
 
 
@@ -11,31 +11,14 @@ import { Loader } from '../../components/loader/index.js'
  * Компонент списка карточек
  */
 
-export function GoodList(props) {
+export function GoodList() {
 
-    const [goods, setGoods] = useState([])
     const [isLoading, setIsLoading] = useState(true)
+    const [goods, setGoods] = useState([])
     const [selected, setSelected] = useState([])
 
     const location = useLocation()
     const navigate = useNavigate()
-
-
-    useEffect(() => {
-
-        // setTimeout(() => {
-            const goodsFromDetail = location?.state?.goods
-            console.log(location)
-            if (goodsFromDetail) {
-                setGoods(goodsFromDetail)
-            }
-            else {
-                setGoods(goodsJSON)
-            }
-            setIsLoading(false)
-        // }, 500);
-        
-    }, [])
 
     const findGood = (e) => {
         e.preventDefault()
@@ -59,16 +42,23 @@ export function GoodList(props) {
         e.preventDefault()
         const currentGoods = goods
         for (let i = currentGoods.length - 1; i >= 0; i--) {
-            for(let k = 0; k < selected.length; k++){
-                if (currentGoods[i] && currentGoods[i].ID === selected[k].ID){
+            for (let k = 0; k < selected.length; k++) {
+                if (currentGoods[i] && currentGoods[i].ID === selected[k].ID) {
                     currentGoods.splice(i, 1)
                 }
             }
         }
     }
 
+    useEffect(() => {
+        setTimeout(() => {
+            setGoods(goodsJSON)
+            setIsLoading(false)
+        }, 1000)
+    }, [])
+
     if (isLoading) {
-        return <><Loader /></>
+        return <Loader />
     }
 
     return (
@@ -84,7 +74,7 @@ export function GoodList(props) {
             <div className='container__card'>
                 {
                     goods.map((element) => {
-                        return <GoodItem key={element.ID} data={element} deleteGood={deleteGood} selected={selected} setSelected={setSelected} />
+                        return <GoodItem key={element.ID} data={element} deleteGood={deleteGood} selected={selected} setSelected={setSelected}/>
                     })
                 }
             </div>

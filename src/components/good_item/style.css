@@ -26,15 +26,6 @@
   margin: 5px;
 }
 
-.card__del_block {
-  margin: 10px;
-}
-
-.card__del_block button {
-  padding: 5px;
-  margin: 5px;
-}
-
 .del {
   outline:3px solid #ed1212;
 }

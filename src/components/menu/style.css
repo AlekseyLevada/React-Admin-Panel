@@ -1,11 +1,15 @@
 .container__menu {
     text-align: center;
-    padding: 0px 10px;
+    padding: 10px;
     background-color: #2A284F;
     box-shadow: 1px 0px 3px #000;
     border-right: 1px solid #000;
     width: 15%;
     min-height: 100vh;
+  }
+
+  .container__menu h2 {
+    color: #FFCA05;
   }
   
   .menu__list {
