@@ -1,42 +1,36 @@
 import '../main_layout/style.css'
-import React from 'react'
+import React, { useState } from 'react'
 
-import Menu from '../menu/index.js'
+import { Menu } from '../menu/index.js'
 
-// Импортируем механизм роутер дома
+// Импорт механизма роутер {Outlet} дома для отображения дочерних елементов компонента MainLayout
+
 import { Outlet } from 'react-router-dom'
 
-export default class MainLayout extends React.Component {
-  constructor() {
-    super()
-    this.state = {
-      menu: [
-        {
-          text: 'Главная',
-          link: '/',
-        },
-        {
-          text: 'Товары',
-          link: '/goods',
-        },
-        {
-          text: 'Пользователи',
-          link: '/users',
-        },
-        {
-          text: 'Отзывы',
-          link: '/reviews',
-        },
-      ]
-    }
-  }
+export function MainLayout() {
+  const [menu, setMenu] = useState([
+    {
+      text: 'Главная',
+      link: '/',
+    },
+    {
+      text: 'Товары',
+      link: '/goods',
+    },
+    {
+      text: 'Пользователи',
+      link: '/users',
+    },
+    {
+      text: 'Отзывы',
+      link: '/reviews',
+    },
+  ])
 
-  render() {
-    return (
-      <div className='main__layout'>
-        <Menu menu={this.state.menu} />
-        <Outlet />
-      </div>
-    )
-  }
+  return (
+    <div className='main__layout'>
+      <Menu menu={menu} />
+      <Outlet />
+    </div>
+  )
 }

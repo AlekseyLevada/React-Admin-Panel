@@ -48,13 +48,15 @@ export function GoodList() {
                 }
             }
         }
+        setSelected([])
+        setGoods([...currentGoods])
     }
 
     useEffect(() => {
         setTimeout(() => {
             setGoods(goodsJSON)
             setIsLoading(false)
-        }, 1000)
+        }, 300)
     }, [])
 
     if (isLoading) {

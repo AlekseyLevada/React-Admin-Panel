@@ -4,6 +4,7 @@ import './style.css'
 import { Button } from '../buttons/index.js'
 import { Link } from 'react-router-dom'
 
+
 export function GoodItem(props) {
 
     const { data, deleteGood, selected, setSelected } = props
@@ -11,7 +12,6 @@ export function GoodItem(props) {
     const currentClassName = `card ${selectedForDel ? 'del' : ''}`
 
     const setCurrent = (e) => {
-
         if (e.target.checked) {
             setSelectedForDel(true)
             selected.push(data)
@@ -43,8 +43,6 @@ export function GoodItem(props) {
             <Link onClick={(e) => deleteGood(e, data.ID)}>
                 <Button value='Удалить' />
             </Link>
-            <div className='card__del_block'>
-            </div>
         </div>
     )
 }
