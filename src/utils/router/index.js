@@ -3,7 +3,7 @@ import { createBrowserRouter } from 'react-router-dom'
 // Импортируем страницы приложения
 
 import {MainLayout} from '../../components/main_layout/index.js'
-import Main from '../../pages/main/index.js'
+import {Main} from '../../pages/main/index.js'
 import Goods from '../../pages/goods/index.js'
 import Users from '../../pages/users/index.js'
 import Reviews from '../../pages/reviews/index.js'
