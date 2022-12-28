@@ -4,7 +4,7 @@ import { createBrowserRouter } from 'react-router-dom'
 
 import {MainLayout} from '../../components/main_layout/index.js'
 import {Main} from '../../pages/main/index.js'
-import Goods from '../../pages/goods/index.js'
+import {Goods} from '../../pages/goods/index.js'
 import Users from '../../pages/users/index.js'
 import Reviews from '../../pages/reviews/index.js'
 
