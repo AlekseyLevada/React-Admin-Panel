@@ -8,3 +8,17 @@
 h2 {
   margin: 15px 0px;
 }
+
+button {
+  border:none;
+  margin:5px;
+  padding: 7px;
+  border-radius: 5px;
+  background-color: #2A284F;
+  height: 30px;
+  color: #FFCA05;
+}
+
+button:hover {
+  color:#fff;
+}

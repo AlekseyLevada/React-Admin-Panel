@@ -2,6 +2,6 @@
     display: flex;
     min-width: 100vw;
     min-height: 100vh;
-    /* background-color: #EDEEF1; Production? */
-    background-color: #ffffff;
+    background-color: #fff;
+    background: url('https://inordic.ru/assets/images/color_bg.jpg');
 }

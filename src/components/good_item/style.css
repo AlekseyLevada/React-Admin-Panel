@@ -8,7 +8,8 @@
   cursor: pointer;
   width: 30%;
   outline: 2px solid #c4c4c4;
-  box-shadow: 0px 0px 10px #c2c2c2;
+  background: #fff;
+  box-shadow: inset 0px 0px 40px #6d6a6a;
   margin: 10px;
   padding: 5px;
   text-align: center;
@@ -16,9 +17,15 @@
 }
 
 .title__container {
+  padding-right: 25px;
   display: flex;
   align-items: center;
   justify-content:space-between;
+}
+
+.title__container input {
+  cursor: pointer;
+  width: 14px;
 }
 .card a {
   display: inline-block;
@@ -42,10 +49,10 @@
   margin: 10px;
 }
 
-.card:hover {
+/* .card:hover {
   transition: .3s;
   transform: scale(1.02);
-}
+} */
 
 .card img {
   width: 150px;

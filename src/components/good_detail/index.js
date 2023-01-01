@@ -1,11 +1,11 @@
 import './style.css'
 import React, { useState, useEffect } from 'react'
 import { useParams, useNavigate, useLocation} from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import { Loader } from '../loader'
 
 import goodsJSON from '../../stub/goods.json'
-import { Link } from 'react-router-dom'
-import { Button } from '../buttons'
-import { Loader } from '../loader'
+
 
 
 
@@ -19,12 +19,6 @@ export function GoodDetail() {
     
     const navigate = useNavigate()
     const location = useLocation()
-
-    // useEffect(() => {
-    //     const findIn = location?.state?.goods || goods
-    //     const good = findIn.find(el => el.ID == id)
-    //     setGood(good)
-    // }, [])
 
     useEffect(() => {
         const detailedGood = goods.find(el => el.ID == id)
@@ -71,7 +65,9 @@ export function GoodDetail() {
             <div className='container__detail_card'>
                 <div className='container__info'>
                     <img src={good.IMG} />
-                    <Link to='/goods'><Button value='Назад' /></Link>
+                    <Link to='/goods'>
+                        <button type='submit'>Назад к списку товаров</button>
+                    </Link>
                 </div>
                 <div className='container__form'>
                     <form ref={saveForm} encType='multipart/form-data'>
@@ -79,14 +75,13 @@ export function GoodDetail() {
                         <input type='text' defaultValue={good.TITLE} name='TITLE' />
                         <p>Описание товара</p>
                         <textarea type='text' defaultValue={good.DISCR} name='DISCR' cols={37} rows={5}></textarea>
-                        {/* <input type='text' defaultValue={good.DISCR} name='DISCR' /> */}
                         <p>Цена</p>
                         <input type='text' defaultValue={good.PRICE} name='PRICE' />
                         <p>Колличество</p>
                         <input type='text' defaultValue={good.COUNT} name='COUNT' />
 
                         <input type='file' name='FILE' />
-                        <input type='submit' value='Сохранить' onClick={(e) => saveGood(e)} />
+                        <button type='submit' onClick={(e) => saveGood(e)}>Сохранить</button>
                     </form>
                 </div>
             </div>

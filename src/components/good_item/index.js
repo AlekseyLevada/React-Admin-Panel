@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react"
 import './style.css'
 
-import { Button } from '../buttons/index.js'
 import { Link } from 'react-router-dom'
 
 
@@ -37,11 +36,11 @@ export function GoodItem(props) {
             <p>{data.PRICE}</p>
 
             <Link to={`/goods/${data.ID}`}>
-                <Button value='Редактировать' />
+                <button type="submit">Редактировать</button>
             </Link>
 
             <Link onClick={(e) => deleteGood(e, data.ID)}>
-                <Button value='Удалить' />
+                <button type="submit">Удалить</button>
             </Link>
         </div>
     )

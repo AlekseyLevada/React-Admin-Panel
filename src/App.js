@@ -8,19 +8,13 @@ import Router from './utils/router'
 import { RouterProvider } from 'react-router-dom'
 
 /**
- * Класс для генерирования Главной страницы приложения
+ * Генерирование компонента приложения App
  */
 
-export default class App extends React.Component {
-  constructor() {
-    super()
-  }
-
-  render() {
-    return (
-      <div className="App">
+export function App() {
+  return(
+    <div className="App">
         <RouterProvider router={Router}/>
       </div>
-    );
-  }
+  )
 }

@@ -1,17 +1,12 @@
-import goodsJSON from '../../../stub/goods.json'
 import React, { createRef, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-
 import './style.css'
+import goodsJSON from '../../../stub/goods.json'
 
 export function AddGood() {
 
     const formAdd = createRef()
     const navigate = useNavigate()
-
-    useEffect(() => {
-
-    }, [])
 
     const addGood = (e) => {
         e.preventDefault()
@@ -29,12 +24,12 @@ export function AddGood() {
             'IMG': null,
         }
         goodsJSON.push(objectAdd)
-        //console.log(goodsJSON)
         navigate('/goods', {
-            state : {
+            state: {
                 goods: goodsJSON
             }
         })
+        console.log(formData)
     }
 
     return (
@@ -45,7 +40,7 @@ export function AddGood() {
                 <input type='text' name='discr' placeholder='Описание' />
                 <input type='text' name='count' placeholder='Цена' />
                 <input type='text' name='price' placeholder='Колличество' />
-                <input type='submit' onClick={(e) => addGood(e)} placeholder='Колличество' value='Добавить' />
+                <button type='submit' onClick={(e) => addGood(e)}>Добавить</button>
             </form>
         </div>
     )
