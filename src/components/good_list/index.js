@@ -56,7 +56,7 @@ export function GoodList() {
         setTimeout(() => {
             setGoods(goodsJSON)
             setIsLoading(false)
-        }, 300)
+        }, 2000)
     }, [])
 
     if (isLoading) {
