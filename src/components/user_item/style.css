@@ -1,0 +1,33 @@
+.user__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    margin: 20px;
+    border: 2px solid #FFCA05;
+}
+
+.user__avatar img{
+    border-radius: 50%;
+    width: 70px;
+}
+
+.user__action {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.user__edit {
+    background-color: #FFCA05;
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+}
+
+.user__delete {
+    background-color: #be0808;
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+}
