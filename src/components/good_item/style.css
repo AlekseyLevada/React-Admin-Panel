@@ -4,7 +4,7 @@
   justify-content: baseline;
 }
 
-.card {
+.good__card {
   cursor: pointer;
   width: 30%;
   outline: 2px solid #c4c4c4;
@@ -27,7 +27,7 @@
   cursor: pointer;
   width: 14px;
 }
-.card a {
+.good__card a {
   display: inline-block;
   text-decoration: none;
   margin: 5px;
@@ -37,15 +37,15 @@
   outline:3px solid #ed1212;
 }
 
-.card h3 {
+.good__card h3 {
   margin: 10px;
 }
 
-.card h4 {
+.good__card h4 {
   margin: 10px;
 }
 
-.card p {
+.good__card p {
   margin: 10px;
 }
 
@@ -54,6 +54,6 @@
   transform: scale(1.02);
 } */
 
-.card img {
+.good__card img {
   width: 150px;
 }

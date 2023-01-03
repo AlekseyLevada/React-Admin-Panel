@@ -8,7 +8,7 @@ export function GoodItem(props) {
 
     const { data, deleteGood, selected, setSelected } = props
     const [selectedForDel, setSelectedForDel] = useState(false)
-    const currentClassName = `card ${selectedForDel ? 'del' : ''}`
+    const currentClassName = `good__card ${selectedForDel ? 'del' : ''}`
 
     const setCurrent = (e) => {
         if (e.target.checked) {

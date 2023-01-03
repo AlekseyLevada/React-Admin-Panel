@@ -1,5 +1,5 @@
-import '../main_layout/style.css'
 import React, { useState } from 'react'
+import '../main_layout/style.css'
 
 import { Menu } from '../menu/index.js'
 
