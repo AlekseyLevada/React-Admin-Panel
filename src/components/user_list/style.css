@@ -1,13 +1,30 @@
 .container__users {
+    width: 85%;
     padding: 10px;
 }
 
-/* .container__users_form {
+.container__users_form {
+    text-align: end;
+    margin: 25px;
+}
 
-} */
+.container__users_form input {
+    height: 30px;
+    border-radius: 3px;
+    background-color: #37355f;
+    color: #FFCA05;
+}
+
+.container__users_form input::placeholder {
+    color: #FFCA05;
+}
+
+.container__users_form input:focus-visible {
+    outline:2px solid #FFCA05;
+}
 
 .users__table {
-    border: 2px solid #000;
+    outline: 2px solid #2A284F;
 }
 
 .table__header {

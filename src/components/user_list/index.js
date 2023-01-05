@@ -13,11 +13,13 @@ export function UserList() {
             <h2>
                 Пользователи
             </h2>
+
             <form className='container__users_form'>
                 <input type='text' placeholder='Данные пользователя' />
                 <button>Удалить ... пользователей</button>
                 <button>Добавить пользователя</button>
             </form>
+
             <div className='users__table table'>
                 <div className='table__header'>
                     <div className='table__cell'>
@@ -27,10 +29,10 @@ export function UserList() {
                         <div>ID</div>
                     </div>
                     <div className='table__cell'>
-                        <div>Имя</div>
+                        <div>Аватар</div>
                     </div>
                     <div className='table__cell'>
-                        <div>Аватар</div>
+                        <div>Имя</div>
                     </div>
                     <div className='table__cell'>
                         <div>Почта</div>
@@ -48,11 +50,13 @@ export function UserList() {
                         <div>Действие</div>
                     </div>
                 </div>
-                {
-                    users.map(el => {
-                        return <UserItem key={el.id} data={el} />
-                    })
-                }
+                <div className='table__content'>
+                    {
+                        users.map(el => {
+                            return <UserItem key={el.id} data={el} />
+                        })
+                    }
+                </div>
             </div>
         </div>
     )

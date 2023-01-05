@@ -5,8 +5,8 @@
   box-sizing: border-box;
 }
 
-h2 {
-  margin: 15px 0px;
+a {
+  cursor: pointer;
 }
 
 button {

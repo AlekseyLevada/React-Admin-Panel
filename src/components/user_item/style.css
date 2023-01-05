@@ -1,13 +1,19 @@
 .table__item {
     display: flex;
     margin: 10px 0px;
+    padding: 5px 0px;
+}
+
+.table__item:hover {
+    background-color: #2A284F;
+    color: #FFCA05;
 }
 
 .item__table_cell {
     display: flex;
     width: 100%;
     align-items: center;
-    justify-content: center;
+    justify-content:center;
 }
 
 .item__table_cell img {
@@ -24,13 +30,13 @@
 .trashbox, .pencil__edit {
     width: 25px;
     height: 25px;
-    margin: 5px;
+    margin: 0px 10px;
 }
 
 .trashbox g {
-    fill: #c21717;
+    fill: #9f1515;
 }
 
 .pencil__edit g {
-    fill: #2a284f;
+    fill: #FFCA05;
 }

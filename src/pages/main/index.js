@@ -3,7 +3,7 @@ import './style.css'
 
 export function Main() {
     return (
-        <div className='main__page'>
+        <div className='container__main_page'>
             <h2>
                 Главная страница
             </h2>

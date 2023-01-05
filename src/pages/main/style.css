@@ -1,7 +1,4 @@
-.main__page {
+.container__main_page {
     width: 85%;
-}
-
-.main__page h2 {
-    text-align: center;
+    padding: 10px;
 }
