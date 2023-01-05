@@ -5,6 +5,10 @@
   box-sizing: border-box;
 }
 
+body {
+  overflow-y: scroll;
+}
+
 a {
   cursor: pointer;
 }

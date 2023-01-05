@@ -5,7 +5,7 @@ import { ReactComponent as PencilEdit } from '../../../src/icons/editpencil.svg'
 import { Link } from 'react-router-dom'
 
 export function UserItem(props) {
-    const { data } = props
+    const { data, deleteUser} = props
     return (
         <div className='table__item item'>
 
@@ -47,7 +47,7 @@ export function UserItem(props) {
                         <PencilEdit className='pencil__edit' />
                     </div></Link>
                     <Link><div className='action__delete'>
-                        <Trashbox className='trashbox' />
+                        <Trashbox className='trashbox' onClick={() => deleteUser(data.id)}/>
                     </div></Link>
                 </div>
             </div>

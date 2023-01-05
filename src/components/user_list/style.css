@@ -30,6 +30,7 @@
 .table__header {
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .table__cell {
