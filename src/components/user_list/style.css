@@ -1,0 +1,28 @@
+.container__users {
+    padding: 10px;
+}
+
+/* .container__users_form {
+
+} */
+
+.users__table {
+    border: 2px solid #000;
+}
+
+.table__header {
+    display: flex;
+    align-items: center;
+}
+
+.table__cell {
+    padding: 10px;
+    width: 100%;
+    background-color: #2A284F;
+    color: #FFCA05;
+}
+
+.table__cell:hover {
+    color: #fff;
+    box-shadow: inset 0px 0px 30px #1c1b34;
+}

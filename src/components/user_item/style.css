@@ -1,33 +1,36 @@
-.user__item {
+.table__item {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-    margin: 20px;
-    border: 2px solid #FFCA05;
+    margin: 10px 0px;
 }
 
-.user__avatar img{
+.item__table_cell {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.item__table_cell img {
+    width: 50px;
     border-radius: 50%;
-    width: 70px;
 }
 
-.user__action {
+.item__table_action {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
-.user__edit {
-    background-color: #FFCA05;
-    width: 30px;
-    height: 30px;
+.trashbox, .pencil__edit {
+    width: 25px;
+    height: 25px;
     margin: 5px;
 }
 
-.user__delete {
-    background-color: #be0808;
-    width: 30px;
-    height: 30px;
-    margin: 5px;
+.trashbox g {
+    fill: #c21717;
+}
+
+.pencil__edit g {
+    fill: #2a284f;
 }
