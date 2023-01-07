@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, Fragment } from 'react'
 import './style.css'
 import { Link, useParams } from 'react-router-dom'
 import { Loader } from '../loader'
@@ -37,27 +37,36 @@ export function UserDetail() {
                             Назад к таблице
                         </button>
                     </Link>
+                    <Link to='#'>
+                        <button>Сохранить</button>
+                    </Link>
                 </div>
                 <div className='container__user_detail_form'>
-                    <form>
-                        <p>Имя</p>
-                        <input type='text' defaultValue={user.name} name='name' />
-                        <p>Логин</p>
-                        <input type='text' defaultValue={user.username} name='username' />
-                        <p>Почта</p>
-                        <input type='text' defaultValue={user.email} name='email' />
-                        <p>Адрес</p>
-                        <input type='text' defaultValue={user.address} name='address' />
-                        <p>Город</p>
-                        <input type='text' defaultValue={user.city} name='city' />
-                        <p>Почтовый индекс</p>
-                        <input type='text' defaultValue={user.zipcode} name='zipcode' />
-                        <p>Телефон</p>
-                        <input type='text' defaultValue={user.phone} name='phone' />
-                        <p>Вебсайт</p>
-                        <input type='text' defaultValue={user.website} name='website' />
-                        <p>Место работы</p>
-                        <input type='text' defaultValue={user.company} name='company' />
+                    <form className='user_detail_form'>
+                        <div className='user_detail_form-left-side'>
+                            <p>ID</p>
+                            <input type='text' defaultValue={user.id} name='name' />
+                            <p>Имя</p>
+                            <input type='text' defaultValue={user.name} name='name' />
+                            <p>Логин</p>
+                            <input type='text' defaultValue={user.username} name='username' />
+                            <p>Почта</p>
+                            <input type='text' defaultValue={user.email} name='email' />
+                            <p>Адрес</p>
+                            <input type='text' defaultValue={user.address} name='address' />
+                        </div>
+                        <div className='user_detail_form-right-side'>
+                            <p>Город</p>
+                            <input type='text' defaultValue={user.city} name='city' />
+                            <p>Почтовый индекс</p>
+                            <input type='text' defaultValue={user.zipcode} name='zipcode' />
+                            <p>Телефон</p>
+                            <input type='text' defaultValue={user.phone} name='phone' />
+                            <p>Вебсайт</p>
+                            <input type='text' defaultValue={user.website} name='website' />
+                            <p>Место работы</p>
+                            <input type='text' defaultValue={user.company} name='company' />
+                        </div>
                     </form>
                 </div>
             </div>

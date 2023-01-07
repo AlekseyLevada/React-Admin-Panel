@@ -5,11 +5,56 @@
 
 .container__user_detail_card {
     display: flex;
-    outline: 2px solid #2A284F;
+    justify-content: space-around;
+    align-items: center;
+    outline: 3px solid #2A284F;
+    padding: 10px;
 }
 
 .container__user_info {
+    padding: 10px;
+    margin: 15px;
+}
+
+.container__user_info a {
+    display: inline;
+}
+
+.container__user_info img {
+    display: block;
+    width: 170px;
+    margin: 0px auto 50px auto;
+    border-radius: 50%;
+    outline: 3px solid #2A284F;
+}
+
+.container__user_detail_form {
+    padding: 10px;
+    margin: 15px;
+}
+
+.user_detail_form {
+    padding: 10px;
+    margin: 15px;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
+}
+
+.user_detail_form input {
+    margin-bottom: 5px;
+    height: 30px;
+}
+
+.user_detail_form p {
+    margin-bottom: 5px;
+}
+
+.user_detail_form-left-side {
+    padding: 10px;
+    margin: 15px;
+}
+
+.user_detail_form-right-side {
+    padding: 10px;
+    margin: 15px;
 }
