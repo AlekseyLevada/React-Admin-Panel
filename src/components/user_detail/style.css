@@ -1,0 +1,15 @@
+.container__user_detail {
+    width: 85%;
+    padding: 10px;
+}
+
+.container__user_detail_card {
+    display: flex;
+    outline: 2px solid #2A284F;
+}
+
+.container__user_info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

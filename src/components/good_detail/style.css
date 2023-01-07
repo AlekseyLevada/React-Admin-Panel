@@ -4,21 +4,21 @@
     margin:0 auto;
 }
 
-.container__detail_card {
+.container__good_detail_card {
     display: flex;
     justify-content: center;
     padding: 20px;
-    outline: 2px solid #000;
+    outline: 2px solid #2A284F;
     box-shadow: inset 0px 0px 30px #6d6a6a;
     background-color: #fff;
 }
 
-.container__form {
+.container__good_detail_form {
     padding: 20px;
     margin: 20px;
 }
 
-.container__form input{
+.container__good_detail_form input{
     display: block;
     height: 10%;
     width: 100%;
@@ -27,12 +27,12 @@
     padding: 5px;
 }
 
-.container__form textarea {
+.container__good_detail_form textarea {
     margin-top: 5px;
     margin-bottom: 20px;
 }
 
-.container__info {
+.container__good_info {
     display: flex;
     flex-direction: column;
     padding: 20px;
@@ -41,16 +41,12 @@
     margin: 20px;
 }
 
-.container__info img {
+.container__good_info img {
     width: 300px;
     margin: 20px;
 }
 
-.container__info a {
+.container__good_info a {
     text-decoration: none;
 }
 
-.container__info .detailBtn {
-    width: 200px;
-    height: 75%;
-}

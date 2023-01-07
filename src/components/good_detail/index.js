@@ -1,6 +1,6 @@
 import './style.css'
 import React, { useState, useEffect } from 'react'
-import { useParams, useNavigate, useLocation} from 'react-router-dom'
+import { useParams, useNavigate, useLocation } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import { Loader } from '../loader'
 
@@ -16,14 +16,16 @@ export function GoodDetail() {
     const { id } = useParams()
 
     const saveForm = React.createRef()
-    
+
     const navigate = useNavigate()
     const location = useLocation()
 
     useEffect(() => {
-        const detailedGood = goods.find(el => el.ID == id)
-        setGood(detailedGood)
-    },[])
+        setTimeout(() => {
+            const detailedGood = goods.find(el => el.ID == id)
+            setGood(detailedGood)
+        }, 1000)
+    }, [])
 
     /**Метод сохранения товара после редактирования */
 
@@ -62,14 +64,14 @@ export function GoodDetail() {
 
     return (
         <div className='container__good_detail'>
-            <div className='container__detail_card'>
-                <div className='container__info'>
+            <div className='container__good_detail_card'>
+                <div className='container__good_info'>
                     <img src={good.IMG} />
                     <Link to='/goods'>
                         <button type='submit'>Назад к списку товаров</button>
                     </Link>
                 </div>
-                <div className='container__form'>
+                <div className='container__good_detail_form'>
                     <form ref={saveForm} encType='multipart/form-data'>
                         <p>Название товара</p>
                         <input type='text' defaultValue={good.TITLE} name='TITLE' />

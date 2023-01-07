@@ -4,7 +4,7 @@ import { Loader } from '../loader'
 import { UserItem } from '../user_item/index.js'
 import usersJSON from '../../stub/users.json'
 
-export function UserList() {
+export function UserList(props) {
 
     const [isLoading, setIsLoading] = useState(true)
     const [users, setUsers] = useState(usersJSON)
@@ -45,8 +45,6 @@ export function UserList() {
     if (isLoading) {
         return <Loader />
     }
-
-
 
     return (
         <div className='container__users users'>
