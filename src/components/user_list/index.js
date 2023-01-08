@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react'
 import './style.css'
-import { Loader } from '../loader'
+import React, { useState, useEffect } from 'react'
+import { Loader } from '../loader/index.js'
 import { UserItem } from '../user_item/index.js'
 import usersJSON from '../../stub/users.json'
+import { Link } from 'react-router-dom'
 
 export function UserList(props) {
 
@@ -55,7 +56,10 @@ export function UserList(props) {
             <form className='container__users_form'>
                 <input type='text' placeholder='Найти пользователя' onChange={(e) => findUser(e)} />
                 <button>Удалить ... пользователей</button>
-                <button>Добавить пользователя</button>
+
+                <Link to='/users/add'>
+                    <button>Добавить пользователя</button>
+                </Link>
             </form>
 
             <div className='users__table table'>

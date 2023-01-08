@@ -1,0 +1,17 @@
+.container__users_form_add {
+    width: 85%;
+    padding: 10px;
+}
+
+.users_form_add {
+    outline: 2px solid #2A284F;
+}
+
+.users_form_add p {
+    margin-bottom: 5px;
+}
+
+.users_form_add input {
+    margin-bottom: 5px;
+    height: 30px;
+}

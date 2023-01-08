@@ -1,6 +1,6 @@
-import React, { createRef, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
 import './style.css'
+import React, { createRef } from 'react'
+import { useNavigate } from 'react-router-dom'
 import goodsJSON from '../../../stub/goods.json'
 
 export function AddGood() {
@@ -29,11 +29,10 @@ export function AddGood() {
                 goods: goodsJSON
             }
         })
-        console.log(formData)
     }
 
     return (
-        <div className='form_add'>
+        <div className='container__goods_form_add'>
             <h2>Форма для добавления товара</h2>
             <form ref={formAdd} encType='multipart/form-data'>
                 <input type='text' name='title' placeholder='Название товара' />

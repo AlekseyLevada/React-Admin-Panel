@@ -1,4 +1,4 @@
-.form_add {
-    margin: 0 auto;
-    text-align: center;
+.container__goods_form_add {
+    width: 85%;
+    padding: 10px;
 }
