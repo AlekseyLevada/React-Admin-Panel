@@ -23,9 +23,13 @@
 .container__user_info img {
     display: block;
     width: 170px;
-    margin: 0px auto 50px auto;
+    margin: 15px auto;
     border-radius: 50%;
     outline: 3px solid #2A284F;
+}
+
+.container__user_info h2  {
+    margin-bottom: 50px;
 }
 
 .container__user_detail_form {
@@ -49,12 +53,7 @@
     margin-bottom: 5px;
 }
 
-.user_detail_form-left-side {
-    padding: 10px;
-    margin: 15px;
-}
-
-.user_detail_form-right-side {
+.user_detail_form-left-side, .user_detail_form-right-side {
     padding: 10px;
     margin: 15px;
 }

@@ -1,6 +1,6 @@
-import React, { useState, useEffect, Fragment } from 'react'
 import './style.css'
-import { Link, useParams } from 'react-router-dom'
+import React, { useState, useEffect, useRef } from 'react'
+import { Link, useParams, useNavigate } from 'react-router-dom'
 import { Loader } from '../loader'
 import usersJSON from '../../stub/users.json'
 
@@ -10,15 +10,48 @@ export function UserDetail() {
     const [users, setUsers] = useState(usersJSON)
     const [user, setUser] = useState(null)
 
+    const ref = useRef()
+    const navigate = useNavigate()
+
+    const saveUser = () => {
+        const dataFromForm = new FormData(ref.current)
+
+        const newFormObject = {
+            name: dataFromForm.get('name'),
+            username: dataFromForm.get('username'),
+            email: dataFromForm.get('email'),
+            address: dataFromForm.get('address'),
+            city: dataFromForm.get('city'),
+            zipcode: dataFromForm.get('zipcode'),
+            phone: dataFromForm.get('phone'),
+            website: dataFromForm.get('website'),
+            company: dataFromForm.get('company'),
+        }
+
+        users.map(el => {
+            if (el.id == id) {
+                el.name = newFormObject.name
+                el.username = newFormObject.username
+                el.email = newFormObject.email
+                el.address = newFormObject.address
+                el.city = newFormObject.city
+                el.zipcode = newFormObject.zipcode
+                el.phone = newFormObject.phone
+                el.website = newFormObject.website
+                el.company = newFormObject.company
+            }
+        })
+    }
+
     useEffect(() => {
-        setInterval(() => {
+        setTimeout(() => {
             users.map(el => {
                 if (id == el.id) {
                     setUser(el)
                 }
             })
         }, 1000)
-    }, [])
+    },)
 
     if (!user) {
         return <Loader />
@@ -27,25 +60,28 @@ export function UserDetail() {
     return (
         <div className='container__user_detail'>
             <h2>
-                Профиль пользователя
+                Профиль пользователя {user.username}
             </h2>
             <div className='container__user_detail_card'>
                 <div className='container__user_info'>
                     <img src={user.avatar}></img>
+                    <h2>
+                        {user.name}
+                    </h2>
                     <Link to='/users'>
                         <button>
                             Назад к таблице
                         </button>
                     </Link>
-                    <Link to='#'>
-                        <button>Сохранить</button>
+                    <Link to='/users'>
+                        <button onClick={() => saveUser()}>Сохранить</button>
                     </Link>
                 </div>
                 <div className='container__user_detail_form'>
-                    <form className='user_detail_form'>
+                    <form ref={ref} className='user_detail_form' encType='multipart/form-data'>
                         <div className='user_detail_form-left-side'>
                             <p>ID</p>
-                            <input type='text' defaultValue={user.id} name='name' />
+                            <input type='text' defaultValue={user.id} disabled name='id' />
                             <p>Имя</p>
                             <input type='text' defaultValue={user.name} name='name' />
                             <p>Логин</p>
