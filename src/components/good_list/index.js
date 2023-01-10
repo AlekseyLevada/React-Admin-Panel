@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 
 import goodsJSON from '../../stub/goods.json'
-import {GoodItem} from '../../components/good_item/index.js'
+import { GoodItem } from '../../components/good_item/index.js'
 import { Loader } from '../../components/loader/index.js'
 
 
@@ -38,7 +38,7 @@ export function GoodList() {
         setGoods(newFilteredGoods)
     }
 
-    const deleteCurrentGood = (e) => {
+    const deleteSelectedGood = (e) => {
         e.preventDefault()
         const currentGoods = goods
         for (let i = currentGoods.length - 1; i >= 0; i--) {
@@ -70,13 +70,13 @@ export function GoodList() {
             </h2>
             <form className='container__goods_form'>
                 <input type='text' placeholder="Поиск товара" onChange={findGood} />
-                <button onClick={deleteCurrentGood}>Удалить...{selected.length} товаров</button>
+                <button onClick={deleteSelectedGood}>Удалить...{selected.length} товаров</button>
                 <button onClick={() => navigate('/goods/add')}>Добавить товар</button>
             </form>
             <div className='container__card'>
                 {
                     goods.map((element) => {
-                        return <GoodItem key={element.ID} data={element} deleteGood={deleteGood} selected={selected} setSelected={setSelected}/>
+                        return <GoodItem key={element.ID} data={element} deleteGood={deleteGood} selected={selected} setSelected={setSelected} />
                     })
                 }
             </div>
