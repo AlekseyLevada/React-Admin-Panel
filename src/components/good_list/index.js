@@ -6,7 +6,6 @@ import goodsJSON from '../../stub/goods.json'
 import { GoodItem } from '../../components/good_item/index.js'
 import { Loader } from '../../components/loader/index.js'
 
-
 /**
  * Компонент списка карточек
  */

@@ -2,13 +2,15 @@ import './style.css'
 import React, { useState, useEffect } from 'react'
 import { Loader } from '../loader/index.js'
 import { UserItem } from '../user_item/index.js'
-import usersJSON from '../../stub/users.json'
 import { Link } from 'react-router-dom'
+import usersJSON from '../../stub/users.json'
 
-export function UserList(props) {
+
+export function UserList() {
 
     const [isLoading, setIsLoading] = useState(true)
     const [users, setUsers] = useState(usersJSON)
+    const [selected, setSelected] = useState([])
 
     const deleteUser = (id) => {
         const filteredUsersArray = []
@@ -18,6 +20,20 @@ export function UserList(props) {
             }
             setUsers(filteredUsersArray)
         })
+    }
+
+    const deleteSelected = (e) => {
+        e.preventDefault()
+        const currentGoods = users
+        for (let i = currentGoods.length - 1; i >= 0; i--) {
+            for (let k = 0; k < selected.length; k++) {
+                if (currentGoods[i] && currentGoods[i].id === selected[k].id) {
+                    currentGoods.splice(i, 1)
+                }
+            }
+        }
+        setSelected([])
+        setUsers([...currentGoods])
     }
 
     const findUser = (e) => {
@@ -55,7 +71,7 @@ export function UserList(props) {
 
             <form className='container__users_form'>
                 <input type='text' placeholder='Найти пользователя' onChange={(e) => findUser(e)} />
-                <button>Удалить ... пользователей</button>
+                <button onClick={(e) => deleteSelected(e)}>Удалить {selected.length} пользователей</button>
 
                 <Link to='/users/add'>
                     <button>Добавить пользователя</button>
@@ -95,7 +111,7 @@ export function UserList(props) {
                 <div className='table__content'>
                     {
                         users.map(el => {
-                            return <UserItem key={el.id} data={el} deleteUser={deleteUser} />
+                            return <UserItem key={el.id} data={el} deleteUser={deleteUser} selected={selected} setSelected={setSelected} />
                         })
                     }
                 </div>

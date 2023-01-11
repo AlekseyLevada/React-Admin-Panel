@@ -1,18 +1,28 @@
 import React from 'react'
 import './style.css'
+import { Link } from 'react-router-dom'
 import { ReactComponent as Trashbox } from '../../../src/icons/trashbox.svg'
 import { ReactComponent as PencilEdit } from '../../../src/icons/editpencil.svg'
-import { Link } from 'react-router-dom'
 
 export function UserItem(props) {
 
-    const { data, deleteUser } = props
+    const { data, deleteUser, selected, setSelected } = props
     
+    const deleteSelected = (e) => {
+        if (e.target.checked){
+            selected.push(data)
+            setSelected([...selected])
+        }else if (!e.target.checked) {
+            const unselected = selected.filter(el => el.id !== data.id)
+            setSelected(unselected)
+        }
+    }
+
     return (
         <div className='table__item item'>
 
             <div className='item__table_cell'>
-                <input type='checkbox' />
+                <input type='checkbox' onClick={deleteSelected}/>
             </div>
 
             <div className='item__table_cell'>

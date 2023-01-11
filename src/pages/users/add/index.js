@@ -23,7 +23,6 @@ export function AddUser() {
             avatar: formDataValues.get('avatar'),
         }
         usersJSON.push(newObject)
-        console.log(usersJSON)
     }
 
     return (
