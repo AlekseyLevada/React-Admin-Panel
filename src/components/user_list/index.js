@@ -24,16 +24,16 @@ export function UserList() {
 
     const deleteSelected = (e) => {
         e.preventDefault()
-        const currentGoods = users
-        for (let i = currentGoods.length - 1; i >= 0; i--) {
+        const currentUsers = users
+        for (let i = currentUsers.length - 1; i >= 0; i--) {
             for (let k = 0; k < selected.length; k++) {
-                if (currentGoods[i] && currentGoods[i].id === selected[k].id) {
-                    currentGoods.splice(i, 1)
+                if (currentUsers[i] && currentUsers[i].id === selected[k].id) {
+                    currentUsers.splice(i, 1)
                 }
             }
         }
         setSelected([])
-        setUsers([...currentGoods])
+        setUsers([...currentUsers])
     }
 
     const findUser = (e) => {

@@ -62,7 +62,7 @@ export function UserItem(props) {
                     </Link>
                     <Link>
                         <div className='action__delete'>
-                            <Trashbox className='trashbox' onClick={() => deleteUser(data.id)} />
+                            <Trashbox className='trashbox' onClick={() => deleteUser(data.id)}/>
                         </div>
                     </Link>
                 </div>
