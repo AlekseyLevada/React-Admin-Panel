@@ -4,6 +4,7 @@
 }
 
 .users_form_add {
+    padding: 10px;
     outline: 2px solid #2A284F;
 }
 
@@ -14,4 +15,20 @@
 .users_form_add input {
     margin-bottom: 5px;
     height: 30px;
+}
+
+.users_form_add_input_block {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 10px;
+}
+
+.users_form_add_part_1, .users_form_add_part_2 {
+    padding: 10px;
+    margin: 15px;
+}
+
+.users_form_add_buttons_block {
+    text-align: center;
+    margin: 20px 0px;
 }
