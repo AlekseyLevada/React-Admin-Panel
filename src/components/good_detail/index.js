@@ -81,7 +81,6 @@ export function GoodDetail() {
                         <input type='text' defaultValue={good.PRICE} name='PRICE' />
                         <p>Колличество</p>
                         <input type='text' defaultValue={good.COUNT} name='COUNT' />
-
                         <input type='file' name='FILE' />
                         <button type='submit' onClick={(e) => saveGood(e)}>Сохранить</button>
                     </form>

@@ -1,6 +1,6 @@
 import './style.css'
 import React, { createRef } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import goodsJSON from '../../../stub/goods.json'
 
 export function AddGood() {
@@ -33,13 +33,22 @@ export function AddGood() {
 
     return (
         <div className='container__goods_form_add'>
-            <h2>Форма для добавления товара</h2>
-            <form ref={formAdd} encType='multipart/form-data'>
+            <h2>Форма для добавления нового товара</h2>
+            <form ref={formAdd} className='goods_form_add' encType='multipart/form-data'>
+                <p>Название товара</p>
                 <input type='text' name='title' placeholder='Название товара' />
-                <input type='text' name='discr' placeholder='Описание' />
-                <input type='text' name='count' placeholder='Цена' />
-                <input type='text' name='price' placeholder='Колличество' />
-                <button type='submit' onClick={(e) => addGood(e)}>Добавить</button>
+                <p>Описание к товару</p>
+                <textarea type='text' placeholder='Описание...' cols={100} rows={15} name='discr'></textarea>
+                <p>Цена</p>
+                <input type='text' name='price' placeholder='Цена' />
+                <p>Колличество</p>
+                <input type='text' name='count' placeholder='Колличество' />
+                <div className='goods_form_add_buttons_block'>
+                    <button onClick={(e) => addGood(e)}>Добавить</button>
+                    <Link to='/goods'>
+                        <button>Отмена</button>
+                    </Link>
+                </div>
             </form>
         </div>
     )
