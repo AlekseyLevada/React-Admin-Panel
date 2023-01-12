@@ -19,6 +19,9 @@ export function GoodList() {
     const location = useLocation()
     const navigate = useNavigate()
 
+
+
+
     const findGood = (e) => {
         e.preventDefault()
         goods.find(element => {
@@ -53,10 +56,17 @@ export function GoodList() {
 
     useEffect(() => {
         setTimeout(() => {
-            setGoods(goodsJSON)
+            const dataFromDetail = location?.state?.goods
+            if (dataFromDetail) {
+                setGoods(dataFromDetail)
+            } else {
+                setGoods(goodsJSON)
+            }
             setIsLoading(false)
-        }, 1500)
+        }, 1000)
+
     }, [])
+
 
     if (isLoading) {
         return <Loader />

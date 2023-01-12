@@ -4,9 +4,9 @@ import './style.css'
 export function Main() {
     return (
         <div className='container__main_page'>
-            <h2>
-                Главная страница
-            </h2>
+            <h1>
+                Административная панель интернет магазина
+            </h1>
         </div>
     )
 }

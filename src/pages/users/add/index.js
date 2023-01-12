@@ -1,14 +1,18 @@
 import './style.css'
-import React, { useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
+
 import usersJSON from '../../../stub/users.json'
+import { Loader } from '../../../components/loader/index.js'
 
 export function AddUser() {
 
     const ref = useRef()
+    const [isLoading, setIsLoading] = useState(true)
 
     const addUser = () => {
         const formDataValues = new FormData(ref.current)
+
         const newObject = {
             id: Math.ceil(Math.random() * 10000000000),
             name: formDataValues.get('name'),
@@ -23,6 +27,16 @@ export function AddUser() {
             avatar: formDataValues.get('avatar'),
         }
         usersJSON.push(newObject)
+    }
+
+    useEffect(() => {
+        setTimeout(() => {
+            setIsLoading(false)
+        }, 1000)
+    }, [])
+
+    if (isLoading) {
+        return <Loader />
     }
 
     return (

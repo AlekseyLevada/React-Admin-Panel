@@ -1,10 +1,12 @@
 import './style.css'
-import React, { createRef } from 'react'
+import React, { createRef, useEffect, useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
+
 import goodsJSON from '../../../stub/goods.json'
+import { Loader } from '../../../components/loader/index.js'
 
 export function AddGood() {
-
+    const [isLoading, setIsLoading] = useState(true)
     const formAdd = createRef()
     const navigate = useNavigate()
 
@@ -29,6 +31,16 @@ export function AddGood() {
                 goods: goodsJSON
             }
         })
+    }
+
+    useEffect(()=> {
+        setTimeout(()=> {
+            setIsLoading(false)
+        }, 1000)
+    },[])
+
+    if(isLoading) {
+        return <Loader/>
     }
 
     return (

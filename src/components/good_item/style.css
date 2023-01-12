@@ -6,7 +6,12 @@
   box-shadow: inset 0px 0px 40px #6d6a6a;
   margin: 10px;
   text-align: center;
-  transition: .3s;
+  transition: .2s;
+}
+
+.good__card:hover {
+  transform: scale(1.03);
+  transition: .2s;
 }
 
 .title__container {

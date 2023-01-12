@@ -11,21 +11,15 @@ import goodsJSON from '../../stub/goods.json'
 
 export function GoodDetail() {
 
+    const saveForm = React.createRef()
     const [good, setGood] = useState(null)
     const [goods, setGoods] = useState(goodsJSON)
+
     const { id } = useParams()
-
-    const saveForm = React.createRef()
-
     const navigate = useNavigate()
     const location = useLocation()
 
-    useEffect(() => {
-        setTimeout(() => {
-            const detailedGood = goods.find(el => el.ID == id)
-            setGood(detailedGood)
-        }, 1000)
-    }, [])
+    console.log(location)
 
     /**Метод сохранения товара после редактирования */
 
@@ -58,9 +52,16 @@ export function GoodDetail() {
         })
     }
 
-    if (!good) {
-        return <Loader />
-    }
+useEffect(() => {
+    setTimeout(() => {
+        const detailedGood = goods.find(el => el.ID == id)
+        setGood(detailedGood)
+    }, 1000)
+}, [])
+
+if (!good) {
+    return <Loader />
+}
 
     return (
         <div className='container__good_detail'>
