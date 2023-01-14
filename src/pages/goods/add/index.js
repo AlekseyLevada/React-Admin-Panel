@@ -5,6 +5,7 @@ import { useNavigate, Link } from 'react-router-dom'
 import goodsJSON from '../../../stub/goods.json'
 import { Loader } from '../../../components/loader/index.js'
 import { ErrorBlock } from '../../../components/error_block'
+import { imageToBS64 } from '../../../utils/base64/index.js'
 
 export function AddGood() {
     const [isLoading, setIsLoading] = useState(true)
@@ -21,7 +22,7 @@ export function AddGood() {
         const price = formData.get('price')
         const image = formData.get('image')
 
-        if (image.type == 'type/png') {
+        if (image.type == 'image/png') {
             const objectAdd = {
                 'ID': Math.random(),
                 'TITLE': title,
@@ -30,17 +31,23 @@ export function AddGood() {
                 'COUNT': count,
                 'IMG': image.name,
             }
-            goodsJSON.push(objectAdd)
-            navigate('/goods', {
-                state: {
-                    goods: goodsJSON
-                }
+
+            imageToBS64(image, function (imageToBS64) {
+                objectAdd.IMG = imageToBS64
+                goodsJSON.push(objectAdd)
+                navigate('/goods', {
+                    state: {
+                        goods: goodsJSON
+                    }
+                })
+                console.log(imageToBS64)
             })
         }
+
         else {
             setIsError(true)
         }
-        
+
     }
 
     useEffect(() => {
@@ -67,6 +74,9 @@ export function AddGood() {
                 <input type='text' name='count' placeholder='Колличество' />
                 <p>Изображение товара</p>
                 <input type='file' name='image' />
+                {
+                    isError ? <ErrorBlock errorText={'Неправильный формат изображения'} /> : ''
+                }
                 <div className='goods_form_add_buttons_block'>
                     <button onClick={(e) => addGood(e)}>Добавить</button>
                     <Link to='/goods'>
@@ -74,9 +84,6 @@ export function AddGood() {
                     </Link>
                 </div>
             </form>
-            {
-                isError ? <ErrorBlock errorText={'Неправильный формат изображения'} /> : ''
-            }
         </div>
     )
 }

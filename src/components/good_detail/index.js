@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { useParams, useNavigate, useLocation } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import { Loader } from '../loader'
+import { imageToBS64 } from '../../utils/base64'
 
 import goodsJSON from '../../stub/goods.json'
 
@@ -19,11 +20,10 @@ export function GoodDetail() {
     const navigate = useNavigate()
     const location = useLocation()
 
-    console.log(location)
-
     /**Метод сохранения товара после редактирования */
 
     const saveGood = (e) => {
+        e.preventDefault()
         const nativeForm = saveForm.current
         const formData = new FormData(nativeForm)
 
@@ -31,24 +31,27 @@ export function GoodDetail() {
         const discr = formData.get('DISCR')
         const price = formData.get('PRICE')
         const count = formData.get('COUNT')
+        const image = formData.get('IMG')
 
-        const img = formData.get('IMG')
-        const file = formData.get('FILE')
+        imageToBS64(image, function (imageToBS64) {
+            goods.find((el, index) => {
+                if (el.ID === id) {
+                    goods[index].TITLE = title
+                    goods[index].DISCR = discr
+                    goods[index].PRICE = price
+                    goods[index].COUNT = count
 
-        goods.find((el, index) => {
-            if (el.ID === id) {
-                goods[index].TITLE = title
-                goods[index].DISCR = discr
-                goods[index].PRICE = price
-                goods[index].COUNT = count
-
-                navigate('/goods', {
-                    state: {
-                        goods: goods
-                    }
-                })
-            }
-            e.preventDefault()
+                if(imageToBS64){
+                    goods[index].IMG = imageToBS64
+                }
+    
+                    navigate('/goods', {
+                        state: {
+                            goods: goods
+                        }
+                    })
+                } 
+            })
         })
     }
 
@@ -82,7 +85,7 @@ if (!good) {
                         <input type='text' defaultValue={good.PRICE} name='PRICE' />
                         <p>Колличество</p>
                         <input type='text' defaultValue={good.COUNT} name='COUNT' />
-                        <input type='file' name='FILE' />
+                        <input type='file' name='IMG' />
                         <button type='submit' onClick={(e) => saveGood(e)}>Сохранить</button>
                     </form>
                 </div>
