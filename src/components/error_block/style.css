@@ -1,0 +1,11 @@
+.error_block {
+    color: tomato;
+    outline: 2px solid tomato;
+    background-color: #2A284F;
+    border-radius: 3px;
+    min-height: 50px;
+    min-width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -4,9 +4,11 @@ import { useNavigate, Link } from 'react-router-dom'
 
 import goodsJSON from '../../../stub/goods.json'
 import { Loader } from '../../../components/loader/index.js'
+import { ErrorBlock } from '../../../components/error_block'
 
 export function AddGood() {
     const [isLoading, setIsLoading] = useState(true)
+    const [isError, setIsError] = useState(false)
     const formAdd = createRef()
     const navigate = useNavigate()
 
@@ -17,30 +19,38 @@ export function AddGood() {
         const discr = formData.get('discr')
         const count = formData.get('count')
         const price = formData.get('price')
-        const objectAdd = {
-            'ID': Math.random(),
-            'TITLE': title,
-            'DISCR': discr,
-            'PRICE': price,
-            'COUNT': count,
-            'IMG': null,
-        }
-        goodsJSON.push(objectAdd)
-        navigate('/goods', {
-            state: {
-                goods: goodsJSON
+        const image = formData.get('image')
+
+        if (image.type == 'type/png') {
+            const objectAdd = {
+                'ID': Math.random(),
+                'TITLE': title,
+                'DISCR': discr,
+                'PRICE': price,
+                'COUNT': count,
+                'IMG': image.name,
             }
-        })
+            goodsJSON.push(objectAdd)
+            navigate('/goods', {
+                state: {
+                    goods: goodsJSON
+                }
+            })
+        }
+        else {
+            setIsError(true)
+        }
+        
     }
 
-    useEffect(()=> {
-        setTimeout(()=> {
+    useEffect(() => {
+        setTimeout(() => {
             setIsLoading(false)
         }, 1000)
-    },[])
+    }, [])
 
-    if(isLoading) {
-        return <Loader/>
+    if (isLoading) {
+        return <Loader />
     }
 
     return (
@@ -55,6 +65,8 @@ export function AddGood() {
                 <input type='text' name='price' placeholder='Цена' />
                 <p>Колличество</p>
                 <input type='text' name='count' placeholder='Колличество' />
+                <p>Изображение товара</p>
+                <input type='file' name='image' />
                 <div className='goods_form_add_buttons_block'>
                     <button onClick={(e) => addGood(e)}>Добавить</button>
                     <Link to='/goods'>
@@ -62,6 +74,9 @@ export function AddGood() {
                     </Link>
                 </div>
             </form>
+            {
+                isError ? <ErrorBlock errorText={'Неправильный формат изображения'} /> : ''
+            }
         </div>
     )
 }
