@@ -1,17 +1,14 @@
 import './style.css'
 import React, { useState, useEffect } from 'react'
-import { useParams, useNavigate, useLocation } from 'react-router-dom'
-import { Link } from 'react-router-dom'
+import { useParams, useNavigate, useLocation, Link } from 'react-router-dom'
 import { Loader } from '../loader'
 import { imageToBS64 } from '../../utils/base64'
-
 import goodsJSON from '../../stub/goods.json'
 
 
 
 
 export function GoodDetail() {
-
     const saveForm = React.createRef()
     const [good, setGood] = useState(null)
     const [goods, setGoods] = useState(goodsJSON)
@@ -31,40 +28,41 @@ export function GoodDetail() {
         const discr = formData.get('DISCR')
         const price = formData.get('PRICE')
         const count = formData.get('COUNT')
-        const image = formData.get('IMG')
+        const img = formData.get('IMG')
 
-        imageToBS64(image, function (imageToBS64) {
+        imageToBS64(img, (imageToBS64) => {
             goods.find((el, index) => {
                 if (el.ID === id) {
                     goods[index].TITLE = title
                     goods[index].DISCR = discr
                     goods[index].PRICE = price
                     goods[index].COUNT = count
+                    goods[index].IMG = img
 
-                if(imageToBS64){
-                    goods[index].IMG = imageToBS64
-                }
-    
+                    if (imageToBS64) {
+                        goods[index].IMG = imageToBS64
+                    }
+
                     navigate('/goods', {
                         state: {
                             goods: goods
                         }
                     })
-                } 
+                }
             })
         })
     }
 
-useEffect(() => {
-    setTimeout(() => {
-        const detailedGood = goods.find(el => el.ID == id)
-        setGood(detailedGood)
-    }, 1000)
-}, [])
+    useEffect(() => {
+        setTimeout(() => {
+            const detailedGood = goods.find(el => el.ID == id)
+            setGood(detailedGood)
+        }, 1000)
+    }, [])
 
-if (!good) {
-    return <Loader />
-}
+    if (!good) {
+        return <Loader />
+    }
 
     return (
         <div className='container__good_detail'>

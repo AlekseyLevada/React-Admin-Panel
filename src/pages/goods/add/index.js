@@ -20,34 +20,33 @@ export function AddGood() {
         const discr = formData.get('discr')
         const count = formData.get('count')
         const price = formData.get('price')
-        const image = formData.get('image')
+        const img = formData.get('img')
 
-        if (image.type == 'image/png') {
+        if (img.type == 'image/png' || img.type == 'image/jpeg') {
             const objectAdd = {
                 'ID': Math.random(),
                 'TITLE': title,
                 'DISCR': discr,
                 'PRICE': price,
                 'COUNT': count,
-                'IMG': image.name,
+                'IMG': img.name,
             }
 
-            imageToBS64(image, function (imageToBS64) {
+            imageToBS64(img, imageToBS64 => {
                 objectAdd.IMG = imageToBS64
+
                 goodsJSON.push(objectAdd)
+
                 navigate('/goods', {
                     state: {
                         goods: goodsJSON
                     }
                 })
-                console.log(imageToBS64)
             })
         }
-
         else {
             setIsError(true)
         }
-
     }
 
     useEffect(() => {
@@ -73,9 +72,9 @@ export function AddGood() {
                 <p>Колличество</p>
                 <input type='text' name='count' placeholder='Колличество' />
                 <p>Изображение товара</p>
-                <input type='file' name='image' />
+                <input type='file' name='img' />
                 {
-                    isError ? <ErrorBlock errorText={'Неправильный формат изображения'} /> : ''
+                    isError ? <ErrorBlock errorText={'Неправильный формат изображения, разрешенный формат .png'} /> : ''
                 }
                 <div className='goods_form_add_buttons_block'>
                     <button onClick={(e) => addGood(e)}>Добавить</button>

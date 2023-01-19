@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 
 import usersJSON from '../../../stub/users.json'
 import { Loader } from '../../../components/loader/index.js'
+import { imageToBS64 } from '../../../utils/base64/index.js'
 
 export function AddUser() {
 
@@ -26,6 +27,10 @@ export function AddUser() {
             company: formDataValues.get('company'),
             avatar: formDataValues.get('avatar'),
         }
+
+        imageToBS64(newObject.avatar, imageToBS64 => {
+            newObject.avatar = imageToBS64
+        })
         usersJSON.push(newObject)
     }
 

@@ -1,7 +1,7 @@
-export function imageToBS64(image, callback) {
+export function imageToBS64(file, callback) {
     const reader = new FileReader()
-    reader.onload = function () {
+    reader.readAsDataURL(file)
+    reader.onload = () => {
         callback(reader.result)
     }
-    reader.readAsDataURL(image)
 }
