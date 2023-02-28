@@ -1,4 +1,7 @@
-import { createBrowserRouter } from 'react-router-dom'
+// Импортируем HashRouter для корректной работы роутера на GitHub Pages
+// Для работы приложения на другом хостинге оставить createBrowserRouter
+
+import { createBrowserRouter, createHashRouter} from 'react-router-dom'
 
 // Импортируем страницы приложения
 
@@ -20,7 +23,7 @@ import { AddUser } from '../../pages/users/add/index.js'
  * Модуль React который определяет маршруты моего приложения
  */
 
-const Router = createBrowserRouter([
+const Router = createHashRouter([
     {
         element: <MainLayout />,
         children: [
