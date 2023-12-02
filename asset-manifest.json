@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/React-Admin-Panel/static/css/main.a3e5bf66.css",
-    "main.js": "/React-Admin-Panel/static/js/main.1614e732.js",
+    "main.css": "/React-Admin-Panel/static/css/main.6600011c.css",
+    "main.js": "/React-Admin-Panel/static/js/main.d6f9353b.js",
     "static/js/787.50355a8a.chunk.js": "/React-Admin-Panel/static/js/787.50355a8a.chunk.js",
     "static/media/editpencil.svg": "/React-Admin-Panel/static/media/editpencil.9d2e389cbc4ca6c7f158c417076e2f9c.svg",
     "index.html": "/React-Admin-Panel/index.html",
     "static/media/trashbox.svg": "/React-Admin-Panel/static/media/trashbox.770905925e9baa9b619964f64b2d818b.svg",
-    "main.a3e5bf66.css.map": "/React-Admin-Panel/static/css/main.a3e5bf66.css.map",
-    "main.1614e732.js.map": "/React-Admin-Panel/static/js/main.1614e732.js.map",
+    "main.6600011c.css.map": "/React-Admin-Panel/static/css/main.6600011c.css.map",
+    "main.d6f9353b.js.map": "/React-Admin-Panel/static/js/main.d6f9353b.js.map",
     "787.50355a8a.chunk.js.map": "/React-Admin-Panel/static/js/787.50355a8a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a3e5bf66.css",
-    "static/js/main.1614e732.js"
+    "static/css/main.6600011c.css",
+    "static/js/main.d6f9353b.js"
   ]
 }
