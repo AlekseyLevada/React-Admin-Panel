@@ -1,11 +1,11 @@
 .main__layout {
     display: -ms-grid;
     display: grid;
-    background: -webkit-gradient(linear, left top, right top, from(#413f80), color-stop(#4d6294), to(#5a83a0));
     background: -o-linear-gradient(left, #413f80, #4d6294, #5a83a0);
+    background: -webkit-gradient(linear, left top, right top, from(#413f80), color-stop(#4d6294), to(#5a83a0));
     background: linear-gradient(90deg, #413f80, #4d6294, #5a83a0);
     width: 100vw;
-    height: 100vh;
     -ms-grid-columns: minmax(auto, 300px) 1fr;
     grid-template-columns: minmax(auto, 300px) 1fr;
+    min-width: 560px;
 }

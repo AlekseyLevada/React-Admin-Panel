@@ -1,30 +1,35 @@
 .good__card {
   cursor: pointer;
-  width: 30%;
+  padding: 20px;
+  width: 100%;
   outline: 2px solid #c4c4c4;
   background: #fff;
-  box-shadow: inset 0px 0px 40px #6d6a6a;
-  margin: 10px;
   text-align: center;
+  -webkit-transition: .2s;
+  -o-transition: .2s;
   transition: .2s;
 }
 
-.good__card:hover {
-  transform: scale(1.03);
-  transition: .2s;
-}
+.good__card:hover {}
 
 .title__container {
-  padding-right: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
-  justify-content:space-between;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
 }
 
 .title__container input {
   cursor: pointer;
   width: 14px;
+  margin: 0;
 }
+
 .good__card a {
   display: inline-block;
   text-decoration: none;
@@ -32,21 +37,40 @@
 }
 
 .del {
-  outline:3px solid #ed1212;
+  outline: 3px solid #ed1212;
 }
 
-.good__card h3 {
-  margin: 10px;
+.good__card h4 {}
+
+.good__card-logo {
+  margin-bottom: 20px;
 }
 
-.good__card h4 {
-  margin: 10px;
+.good__card-title {
+  margin-bottom: 20px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
 }
 
-.good__card p {
-  margin: 10px;
+.good__card-price {
+  margin-bottom: 20px;
 }
 
 .good__card img {
   width: 150px;
+}
+
+@media(max-width:830px) {
+  .container__goods_form {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .container__goods_form input, .container__goods_form button {
+    width: 100%;
+  }
 }

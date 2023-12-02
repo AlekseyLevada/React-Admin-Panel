@@ -1,18 +1,24 @@
 .container__goods {
-    width: 85%;
-    padding: 10px;
+    padding: 20px;
 }
 
 .container__goods_form {
-    text-align: end;
-    margin: 25px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    padding: 20px 0;
+    align-items: center;
 }
 
 .container__goods_form input {
+    border: none;
+    outline: none;
+    padding: 10px;
     height: 30px;
     border-radius: 3px;
     background-color: #37355f;
     color: #FFCA05;
+    margin-bottom: 0;
 }
 
 .container__goods_form input::-webkit-input-placeholder {
@@ -36,13 +42,11 @@
 }
 
 .container__goods_form input:focus-visible {
-    outline:2px solid #FFCA05;
+    outline: 2px solid #FFCA05;
 }
 
 .container__card {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-  }
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 20px;
+}
