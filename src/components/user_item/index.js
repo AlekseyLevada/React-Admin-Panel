@@ -7,12 +7,12 @@ import { ReactComponent as PencilEdit } from '../../../src/icons/editpencil.svg'
 export function UserItem(props) {
 
     const { data, deleteUser, selected, setSelected } = props
-    
+
     const deleteSelected = (e) => {
-        if (e.target.checked){
+        if (e.target.checked) {
             selected.push(data)
             setSelected([...selected])
-        }else if (!e.target.checked) {
+        } else if (!e.target.checked) {
             const unselected = selected.filter(el => el.id !== data.id)
             setSelected(unselected)
         }
@@ -22,35 +22,65 @@ export function UserItem(props) {
         <div className='table__item item'>
 
             <div className='item__table_cell'>
-                <input type='checkbox' onClick={deleteSelected}/>
+                <input type='checkbox' onClick={deleteSelected} />
             </div>
 
             <div className='item__table_cell'>
                 <div><img src={data.avatar} /></div>
             </div>
 
-            <div className='item__table_cell'>
-                <div>{data.id}</div>
+            <div className='item__table_cell-wrapper'>
+                <div className='item__table_cell-name'>
+                    ID
+                </div>
+                <div className='item__table_cell'>
+                    <div>{data.id}</div>
+                </div>
             </div>
 
-            <div className='item__table_cell'>
-                <div>{data.name}</div>
+            <div className='item__table_cell-wrapper'>
+                <div className='item__table_cell-name'>
+                    Имя
+                </div>
+                <div className='item__table_cell'>
+                    <div>{data.name}</div>
+                </div>
             </div>
 
-            <div className='item__table_cell'>
-                <div>{data.email}</div>
+            <div className='item__table_cell-wrapper'>
+                <div className='item__table_cell-name'>
+                    Почта
+                </div>
+                <div className='item__table_cell'>
+                    <div>{data.email}</div>
+                </div>
             </div>
 
-            <div className='item__table_cell'>
-                <div>{data.phone}</div>
+            <div className='item__table_cell-wrapper'>
+                <div className='item__table_cell-name'>
+                    Телефон
+                </div>
+                <div className='item__table_cell'>
+                    <div>{data.phone}</div>
+                </div>
             </div>
 
-            <div className='item__table_cell'>
-                <div>{data.website}</div>
+            <div className='item__table_cell-wrapper'>
+                <div className='item__table_cell-name'>
+                    Вебсайт
+                </div>
+                <div className='item__table_cell'>
+                    <div>{data.website}</div>
+                </div>
             </div>
 
-            <div className='item__table_cell'>
-                <div>{data.company}</div>
+            <div className='item__table_cell-wrapper'>
+                <div className='item__table_cell-name'>
+                    Место работы
+                </div>
+                <div className='item__table_cell'>
+                    <div>{data.company}</div>
+                </div>
             </div>
 
             <div className='item__table_cell'>
@@ -62,7 +92,7 @@ export function UserItem(props) {
                     </Link>
                     <Link>
                         <div className='action__delete'>
-                            <Trashbox className='trashbox' onClick={() => deleteUser(data.id)}/>
+                            <Trashbox className='trashbox' onClick={() => deleteUser(data.id)} />
                         </div>
                     </Link>
                 </div>
