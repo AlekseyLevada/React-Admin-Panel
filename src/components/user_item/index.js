@@ -26,11 +26,11 @@ export function UserItem(props) {
             </div>
 
             <div className='item__table_cell'>
-                <div>{data.id}</div>
+                <div><img src={data.avatar} /></div>
             </div>
 
             <div className='item__table_cell'>
-                <div><img src={data.avatar} /></div>
+                <div>{data.id}</div>
             </div>
 
             <div className='item__table_cell'>

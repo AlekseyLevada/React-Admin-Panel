@@ -1,8 +1,9 @@
 .table__item {
-    display: flex;
-    margin: 10px 0px;
-    padding: 5px 0px;
     cursor: pointer;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .table__item:hover {
@@ -15,6 +16,7 @@
     width: 100%;
     align-items: center;
     justify-content: center;
+    text-align: center;
 }
 
 .item__table_cell img {
@@ -28,7 +30,8 @@
     justify-content: space-around;
 }
 
-.trashbox, .pencil__edit {
+.trashbox,
+.pencil__edit {
     width: 25px;
     height: 25px;
     margin: 0px 10px;

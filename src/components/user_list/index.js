@@ -56,7 +56,7 @@ export function UserList() {
     useEffect(() => {
         setTimeout(() => {
             setIsLoading(false)
-        }, 1500)
+        }, 500)
     }, [])
 
     if (isLoading) {
@@ -79,35 +79,6 @@ export function UserList() {
             </form>
 
             <div className='users__table table'>
-                <div className='table__header'>
-                    <div className='table__cell'>
-                        <div>Выбор</div>
-                    </div>
-                    <div className='table__cell'>
-                        <div>ID</div>
-                    </div>
-                    <div className='table__cell'>
-                        <div>Аватар</div>
-                    </div>
-                    <div className='table__cell'>
-                        <div>Имя</div>
-                    </div>
-                    <div className='table__cell'>
-                        <div>Почта</div>
-                    </div>
-                    <div className='table__cell'>
-                        <div>Телефон</div>
-                    </div>
-                    <div className='table__cell'>
-                        <div>Вебсайт</div>
-                    </div>
-                    <div className='table__cell'>
-                        <div>Компания</div>
-                    </div>
-                    <div className='table__cell'>
-                        <div>Действие</div>
-                    </div>
-                </div>
                 <div className='table__content'>
                     {
                         users.map(el => {

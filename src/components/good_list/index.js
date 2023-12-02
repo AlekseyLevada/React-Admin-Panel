@@ -63,7 +63,7 @@ export function GoodList() {
                 setGoods(goodsJSON)
             }
             setIsLoading(false)
-        }, 1000)
+        }, 500)
 
     }, [])
 
