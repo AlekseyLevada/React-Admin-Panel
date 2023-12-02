@@ -15,6 +15,22 @@
     color: #FFCA05;
 }
 
+.container__goods_form input::-webkit-input-placeholder {
+    color: #FFCA05;
+}
+
+.container__goods_form input::-moz-placeholder {
+    color: #FFCA05;
+}
+
+.container__goods_form input:-ms-input-placeholder {
+    color: #FFCA05;
+}
+
+.container__goods_form input::-ms-input-placeholder {
+    color: #FFCA05;
+}
+
 .container__goods_form input::placeholder {
     color: #FFCA05;
 }
@@ -24,6 +40,9 @@
 }
 
 .container__card {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
   }

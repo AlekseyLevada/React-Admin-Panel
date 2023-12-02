@@ -1,12 +1,18 @@
 .container__main_page {
-    width: 85%;
-    padding: 10px;
+    padding: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 
 .container__main_page h1 {
     color: #FFCA05;
     text-shadow: 4px 1px 2px #2A284F;
+    text-align: center;
 }

@@ -1,10 +1,15 @@
 .container__menu {
     text-align: center;
-    padding: 10px;
-    background-color: #2A284F;
-    box-shadow: 1px 0px 3px #000;
-    width: 15%;
+    padding: 30px 10px;
+    background: #2A284F;
+    -webkit-box-shadow: 1px 0px 3px #000;
+            box-shadow: 1px 0px 3px #000;
+    width: 100%;
     min-height: 100vh;
+  }
+
+  .container__menu-title {
+    margin-bottom: 20px;
   }
 
   .container__menu h2 {
@@ -12,28 +17,48 @@
   }
   
   .menu__list {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 15px;
     list-style: none;
-    margin-top: 10px;
   }
   
   .menu__item {
-    padding: 15px;
     border-radius: 10px;
     text-align: center;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
 
   .menu__item:hover {
     background-color: #FFCA05;
     color:#2A284F;
+    -webkit-transition: .1s;
+    -o-transition: .1s;
     transition: .1s;
   }
   
   .menu__link {
     color: rgb(255, 255, 255);
     text-decoration: none;
+    -webkit-transition: .1s;
+    -o-transition: .1s;
     transition: .1s;
+    width: 100%;
+    padding: 15px;
   }
 
   .menu__link:hover {
